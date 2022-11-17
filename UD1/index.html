@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWEC- UD1- Modificar el contingut del codi HTML</title>
+    <script src="./integracio/js/funciones.js"></script>
+</head>
+<body>
+    <h1> Modificant el codi HTML</h1>
+    <p id="prueba"> Modificant el contingut</p> 
+    <button type="button" onclick="document.getElementById('prueba').innerHTML = 'CAMBIAR EL CONTINGUT!'"> Canvi</button>
+    
+    <h1> Modificant imatges </h1>
+    <img id="LaMevaImatge" src="./integracio/img/sonic.jpeg" onclick="cambiaImagen();" width="300" height="300">
+    
+    <p> Fes clic damunt la imatge per a canviar-la </p>
+    <p id="miTexto">Cualquier texto</p>
+    <button type="button" onclick="miEstilo();"> Cambia estilo </button>
+    <script>
+
+        function miEstilo(){
+            let miTexto = document.getElementById("miTexto");
+            miTexto.innerHTML = "Cambiando estilo";
+            miTexto.style.fontSize = "100px";
+            miTexto.style.color = "red";
+            console.log("Probando 1 2 3");
+            document.write("<h2>TEXTO NUEVO</h2>");
+            if(miTexto.textContent.match('estilo')){
+                miTexto.style.color = "blue";
+            }
+            else{
+                miTexto.style.color = "red";
+            }
+            window.alert("CAMBIOS EN EL TEXTO");
+        }
+
+        // function cambiaImagen() {
+        //    let imagen = document.getElementById('LaMevaImatge');
+
+        //    if(imagen.src.match('baixa')) {
+        //        imagen.src = "./integracio/img/sonic.jpeg";
+        //    }
+        //    else{
+        //        imagen.src = "./integracio/img/baixa.png";
+        //    }
+        //  }
+    </script>
+
+    <noscript><p> PORFAVOR, PERMITE JAVASCRIPT, ZOQUETE </p></noscript>
+</body>
+</html>

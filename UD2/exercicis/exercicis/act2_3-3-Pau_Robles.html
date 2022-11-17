@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Act.2-3-3 Pau Robles</title>
+</head>
+<body>
+    <h1> 3. El factorial d'un nombre enter n és una operació matemàtica que consisteix a multiplicar tots els factors n x (n-1) x (n-2) x ... x 1. Així, el factorial de 5 (escrit com 5!) és igual a: 5! = 5 x 4 x 3 x 2 x 1 = 120.
+        Utilitzant l'estructura for, crear un script que calculi el factorial d'un nombre enter. </h1>
+    <p id="resultado"> </p>
+    <script>
+        
+        function factorialNumero(numero){    
+            let resultado = 1;  
+            for(let i = 1; i <= numero; i++){
+                resultado = resultado * i;
+                document.write("<p> Resultado: "+  resultado + "</p>");
+            }
+        }
+        
+        factorialNumero();
+        
+    </script>
+</body>
+</html>

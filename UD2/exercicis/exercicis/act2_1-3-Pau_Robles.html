@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Act.2-1 Pau Robles </title>
+</head>
+<body>
+    <h1> Crea un programa que demani a l'usuari que introdueixi una edat i mostri el següent missatge (alert o console.log) en funció del número introduït. </h1>
+    <script>
+        function edadPersona(){
+            let resposta = prompt("Escribe tu edad: ");
+            if(resposta >= 0 && resposta <= 12){
+                resposta = alert("Nen");
+            }
+            if(resposta >= 13 && resposta <= 26){
+                resposta = alert("Jove");
+            }
+            if(resposta >= 27 && resposta <= 60){
+                resposta = alert("Adult");
+            }
+            if(resposta > 60){
+                resposta = alert("Jubilat");
+            }
+            if(resposta < 0){
+                resposta = alert("Número incorrecte. Torna a provar");
+            }
+        }
+            
+       edadPersona();
+        
+    </script>
+</body>
+</html>

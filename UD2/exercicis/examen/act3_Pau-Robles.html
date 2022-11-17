@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Act.3 - Pau Robles</title>
+</head>
+<body>
+    <h1>3. Crea un programa que crei i mostri un llistat amb les 26 lletres següents: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z. de manera que per a la pàgina es mostri:</h1>
+    
+    <script>
+        let array = "a, b, c, d, e, f, g, h, i, j,k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z";
+
+        let b = array.split(",");
+
+        for(i = 0; i < b.length; i++){
+            console.log((i + 1) + " - " + b[i].trim());
+        }
+
+        for(i = 0; i < b.length; i++){
+            console.log((i + 1 + 26) + " - a" + b[i].trim());
+        }
+
+    </script>
+    
+</body>
+</html>

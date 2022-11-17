@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1- Pau Robles</title>
+</head>
+<body>
+   
+        <h1> 1. Es demana crear un "HolaMundo" que saludi des dels logs de la consola emprant:</h1>
+    <p id="saludo"></p>
+    <script>
+        let cadena = "HolaMundo"; //Mètode d'integració 1.
+        console.log("HolaMundo"); 
+        console.log(cadena); //Imprimim la cadena
+        alert("HolaMundo"); //Aquí saludam per finestra emergent, abans que per consola.
+        document.getElementById("saludo").innerHTML = "HolaMundo"; //Aquí saludam modificant el fitxer HTML
+        document.write("Hola Mundo 7");        
+    </script>
+    <script src="./script.js"> //Mètode 2.
+
+    </script>
+    <noscript>Tienes que habilitar JS. </noscript>
+
+    <p onclick="console.log('HolaMundo 3'); alert('HolaMundo 6'); document.write('Hola Mundo 9');"> Fes clic aquí</p>
+
+    
+</body>
+</html>

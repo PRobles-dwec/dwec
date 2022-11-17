@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constante de Kaprekar - Soluciones (Recursiva + FOR)</title>
+</head>
+<body>
+    <script>
+
+        const promptText = "Elije cualquier número de 4 dígitos que esté formado por al menos dos dígitos diferentes. Puede incluir el 0.";
+        let numero = prompt(promptText);
+        
+        console.log("Numero inicial:" + numero);
+
+        //
+
+        function Kaprekar(numero, pasos){
+            
+            //Creamos un array para poder tratar el número dígito a dígito.
+            let arrNumero = new Array();
+
+            //Variables para guardar los números ordenados.
+            let mayor, menor;
+
+            //Añadimos el número al array.
+                // for(i = 0; i < numero.length; i++) {
+                //     arrNumero[i] = numero[i];
+
+                // }
+
+                // for(let i = 0; i < numero.length; i++){
+                //     arrNumero[i] = numero.charAt[i];
+                // }
+
+                for(i = 0; i < numero.length; i++){
+                    arrNumero.push(numero.charAt(i));
+                }
+
+                console.log(arrNumero);
+
+                //Ordenar el array (menor a mayor)
+                arrNumero.sort();
+
+                //Guardar el número en menor
+                menor = uneDigitos(arrNumero);
+                
+                //Le damos la vuelta al array y por lo tanto, el número
+                arrNumero = daleLaVuelta(arrNumero);
+
+                mayor = uneDigitos(arrNumero);
+
+                //Convertimos menor y mayor en números (no sería necesario)
+                mayor = parseInt(mayor);
+                menor = parseInt(menor);
+
+                //Realizamos la resta.
+                numero = mayor - menor;  
+                
+                //Mostramos el resultado.
+                console.log(mayor + " - " + menor + " = " + numero);
+
+                //Incrementamos los pasos realizados.
+                pasos++;
+
+                //Evitar bucles infinitos
+                if(pasos > 7){
+                    console.log("Número de pasos superado, algo no está bien...");
+                    return;
+                }
+
+                //Si el número obtenido es de Kaprekar, paramos
+                if(numero === 6174){
+                    console.log("Pasos realizados: " + pasos);
+                    return;
+                }
+
+                //Utilizamos recursividad con el nuevo número.
+                return Kaprekar(formateaNumero(numero.toString()), pasos);
+
+        }
+
+        //Devuelve una cadena formada con los elementos del array
+        //pasado por parámetro tomados como carácteres desde el de
+        // menor índice hasta el último
+
+        function uneDigitos(arrNumero){
+            let cadena = "";
+
+            for(i = 0; i < arrNumero.length; i++){
+                cadena += arrNumero[i];
+            }
+            return cadena;
+        }
+
+        function daleLaVuelta(arrNumero) {
+
+            let arrAux = new Array(arrNumero.length);
+
+            for(j = 0; j < arrNumero.length; j++){
+                arrAux[arrNumero.length - 1 - j] = arrNumero[j];
+            }
+            return arrAux;
+        }
+
+        function formateaNumero(numero){
+            if(numero.length == 3){
+                numero = "0" + numero;
+            }
+            else if(numero.length == 2) {
+                numero = "00" + numero;
+            }
+            else if(numero.length == 1) {
+                numero = "000" + numero;
+            }
+            return numero;
+        }
+        Kaprekar(numero, 0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv= "X-UA-Compatible" content= "IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Reglas </title>
+  <script src="./js/operacions.js"></script>
+  <script src="./js/arrays.js"></script>
+  <script src="./js/fechas.js"></script>
+  <script src="./js/objetos.js"></script>
+  <script src="./js/numeros.js"></script>
+
+</head>
+  <body>
+      <!-- EVENTOS -->
+    <button onclick='this.innerHTML= Date()'> Pulsa aquí para saber la hora </button>
+    <p id="miTexto"> Texto a modificar</p>
+    <button id="miBoton"> Reviéntalo!</button>
+    <script>
+      function dale() {
+        var x = document.getElementById("miTexto");
+        x.innerHTML = "Reventado";
+      }
+      
+      document.getElementById("miBoton").addEventListener("mousemove", dale, false);
+
+    </script>
+       
+      <script> 
+          // Fechas
+              let fecha1 = new Date();
+              let fecha2 = new Date(44444444);
+              let fecha3 = new Date(2022, 10, 04, 16, 02, 35, 27);
+              console.log(fecha1);
+              console.log(fecha2);
+              console.log(fecha3);
+
+          // Métodos tipo fecha
+            let fecha4 = new Date("04/10/2022");
+            alert(fecha4.getMonth());
+      </script>
+
+      <!-- Arrays -->
+      <p id="miArrayChispas"></p>
+      <script>
+          let arrayDias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
+          
+          console.log(arrayDias.length);
+          arrayDias.sort();
+          
+          arrayDias.push("zz");
+          let b = arrayDias.pop();
+          let a1 = arrayDias.shift();
+          
+          console.log(a1);
+          console.log(b);
+
+          document.getElementById("miArrayChispas").innerHTML = arrayDias;
+
+         
+        // Arrays multidimensionales
+        
+
+        // Sentencias condicionales
+
+
+        // Sentencia Switch
+
+
+        // Bucles
+          for(i=0; i < arrayDias.length; i++) { // Recorriendo array con el bucle clásico
+            console.log(arrayDias[i]);
+          }
+
+          arrayDias.forEach(pruebaRecorrerArray);
+
+          function pruebaRecorrerArray(valor, index, array) {
+            // console.log(valor);
+            // console.log(index);
+            console.log(array);            
+          }
+          
+      </script>
+  </body>
+</html>
