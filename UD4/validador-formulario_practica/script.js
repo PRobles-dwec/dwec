@@ -42,11 +42,6 @@ form.addEventListener("submit", function(e) {
         mostraCorrecte(email);
     }
 
-    if(password.value === '') {
-        mostraError(password, 'és obligatori');
-    }else {
-        mostraCorrecte(password);
-    }
 
     if(password2.value === '') {
         mostraError(password2, 'és obligatori');

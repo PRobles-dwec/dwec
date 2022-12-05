@@ -53,6 +53,4 @@ form.addEventListener("submit", function(e) {
     }else {
         mostraCorrecte(password2);
     }
-
-    
 });
