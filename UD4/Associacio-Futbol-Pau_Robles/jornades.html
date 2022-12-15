@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associació D'Amics del Futbol</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">
+</head>
+<body>
+    <!-- Aquesta és la nostra capçalera principal que s'utilitza
+        en totes les pàgines del nostre lloc web -->
+    <header>
+      <div style="text-align: center;">
+        <img src="./img/logo.png">
+      </div>  
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="travesses.html">Travessa</a></li>
+        <li><a href="jornades.html" onclick="escriureJornades()">Jornada</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+      
+      <!-- Un formulari de cerca és una altra manera no lineal
+        de navegar a través d'un lloc web. -->
+      <form>
+        <input type="search" name="q"/>
+        <input type="submit" value="Cerca" />
+      </form>
+    </nav>
+
+    <!-- Aquest és el contingut principal de la nostra pàgina -->
+    <main>
+      <!-- Pot contenir un o més articles -->
+      <article>     
+            <h3>Jornades Masculines</h3>
+            <p id="jornadesMasc">
+                
+            </p>
+            <h3>Jornades Femenines</h3>
+            <p id="jornadesFem">
+                
+            </p>
+      </article>
+
+      <!-- El contingut de "aside" es pot imbricar dins del contingut principal
+        (també pot estar fora) -->
+      <aside>
+        <h2>Eines</h2>
+          <li><a href="#">Eina 1</a></li>
+          <li><a href="#">Eina 2</a></li>
+          <li><a href="#">Eina 3</a></li>
+          <li><a href="#">Eina 4</a></li>
+          <li><a href="#">Eina 5</a></li>
+      </aside>
+    </main>
+    <script src="./js/script.js"></script>
+    <!-- I aquest és el nostre peu principal que s'utilitza
+        a totes les pàgines del nostre lloc web -->
+    <footer>
+      <p>Pau Robles :: DWEC :: DAWB :: 22/23</p>
+    </footer>
+  </body>
+</html>

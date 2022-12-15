@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associació D'Amics del Futbol</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">
+</head>
+<body>
+    <!-- Aquesta és la nostra capçalera principal que s'utilitza
+        en totes les pàgines del nostre lloc web -->
+    <header>
+      <div style="text-align: center;">
+        <img src="./img/logo.png">
+      </div>  
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="travesses.html">Travessa</a></li>
+        <li><a href="jornades.html">Jornada</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+      
+      <!-- Un formulari de cerca és una altra manera no lineal
+        de navegar a través d'un lloc web. -->
+      <form>
+        <input type="search" name="q" />
+        <input type="submit" value="cerca" />
+      </form>
+    </nav>
+
+    <!-- Aquest és el contingut principal de la nostra pàgina -->
+    <main>
+      <!-- Pot contenir un o més articles -->
+      <article>
+        <h2>Apostes Deportives</h2>
+        <p>
+          En aquesta pàgina podràs fer apostes sobre qualsevol partit de la primera lliga espanyola i la segona lliga femenina.
+        </p>
+
+        <h3>Subsecció</h3>
+        <p>
+          Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem.
+          Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+        </p>
+        <p>
+          Pelientesque auctor nisi id magna consequat sagittis. Curabitur
+          dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet.
+          Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
+        </p>
+
+        <h3>Una altra subsecció</h3>
+        <p>
+          Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum
+          soclis natoque penatibus et manis dis parturient montes, nascetur
+          ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
+          facilisis semper ac in est.
+        </p>
+        <p>
+          Vivamus fermentum semper porta. Nunc diam velit, adipscing ut
+          tristique vitae sagittis vel odio. Maecenas convallis ullamcorper
+          ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi
+          diam iaculis velit, is fringille sem nunc vet mi.
+        </p>
+      </article>
+
+      <!-- El contingut de "aside" es pot imbricar dins del contingut principal
+        (també pot estar fora) -->
+      <aside>
+        <h2>Eines</h2>
+        <ul>
+          <li><a href="./jornades.html" onclick="generarAleatorio()">Generador de jornada</a></li>
+          <li><a href="#">Eina 2</a></li>
+          <li><a href="#">Eina 3</a></li>
+          <li><a href="#">Eina 4</a></li>
+          <li><a href="#">Eina 5</a></li>
+        </ul>
+      </aside>
+    </main>
+    <script src="./js/script.js"></script>
+    <!-- I aquest és el nostre peu principal que s'utilitza
+        a totes les pàgines del nostre lloc web -->
+    <footer>
+      <p>Pau Robles :: DWEC :: DAWB :: 22/23</p>
+    </footer>
+  </body>
+</html>
