@@ -1,0 +1,14 @@
+{
+    "persona":[{
+        "nom": "Pere", 
+        "ciutat": "Maó"
+    },
+    {   
+        "nom": "Pere", 
+        "ciutat": "Maó"
+    }],
+    "cotxe":[{
+        "model": "notifixis",
+        "marca": "espardenya"
+    }]
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "display": "IES Joan Ramis i Ramis",
+        "url": "https://iesjoanramis.org"     
+    },
+    {
+        "display": "FC Barcelona",
+        "url":"https://www.fcbarcelona.cat/ca/" 
+    },
+    {
+        "display": "Javascript",
+        "url": "https://www.javascript.com" 
+    }
+]

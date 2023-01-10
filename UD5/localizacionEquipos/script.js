@@ -15,7 +15,6 @@ equipo.addEventListener("keyup", (e)=>{
                 sugerencia.innerHTML = e.target.responseText;
             }
         };
-        xmlhttp.open("GET", );
+        // xmlhttp.open("GET", );
     }
-
 })
