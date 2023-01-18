@@ -1,35 +1,32 @@
+import { useState } from "react";
+
 const Home = () => {
 
-    const handleClick = () => {
-        alert("Boquepasa");
-    };
+    const [clicks, setClick] = useState(0);
+    const [blogs, setBlogs] = useState([
+        {titulo: "Mi nueva web HelloKittyCagues", body: "un texto a mostrar", autor: "Joan", id: 1 },
+        {titulo: "Fiesta de Bienvenida", body: "un texto a mostrar", autor: "Pau", id: 2 },
+        {titulo: "Pesca del Salmón en Yemen", body: "un texto a mostrar", autor: "Alex", id: 3 },
+    ]);
 
-    const handleClickDeNuevo = () => {
-        const equipos = ["FC Barcelona", "Real Madrid", "Real Sociedad", "Betis", "Atlético de Madrid", "Athletic Bilbao", "Getafe", "Valladolid", "Girona"];
-        var aleatorio = equipos[Math.floor(Math.random() *equipos.length)];        
-        var equiposParrafo = document.getElementById("equiposParrafo");
-        for(let i = 0; i < equipos.length; i++){
-            equiposParrafo.innerHTML = '<h1> Mi equipo es:</h1>' + "<img>" +  aleatorio + "</img>";
-
-        }
-    };
+    const handleFastClick = () => {
+        setClick(clicks+1);
+    }
 
     return (
         <div className="home">
-            <h2 style={ {
-             textAlign: 'center'   
-            }}>Página de Inicio</h2>
-            <div style={{           
-                textAlign: 'center'
-            }}>
-                 <button onClick={handleClick}> Dale!</button>
-                <button onClick= {handleClickDeNuevo }> Dale otra vez!</button>
+            { blogs.map((blog) => (
+                <div className="blog-preview" key={ blog.id } style = {{textAlign: "center"}}>
+                    <h2>{ blog.titulo }</h2>
+                    <p>{ blog.body }</p>
+                    <p>Escrito por: { blog.autor }</p>
+                </div>
+            )) }        
+            <div style = {{ textAlign: 'center' }} >
+                <p>Has hecho {clicks} clicks</p>              
+                <button onClick={handleFastClick}> Dale click</button>               
             </div>
-           
-            <p id="equiposParrafo"></p>
-
         </div>
      );
 }
- 
 export default Home;
