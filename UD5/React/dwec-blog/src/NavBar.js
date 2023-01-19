@@ -1,15 +1,12 @@
 const NavBar = () => {
     return ( 
-        <nav className="navbar" style={{
-            backgroundColor: '#FCDEBE',
-        }}>
+        <nav className="navbar">
             <h1>El Blog de DWEC</h1>
             <div className="links">
                 <a href="/" style={{
                      color: '#fff',
-                     backgroundColor: '#f1356d',
-                     borderRadius: '8px'
-                                         
+                     backgroundColor: "#f1356d",
+                     borderRadius: '8px'                                         
                 }}>Home</a>
                 <a href="/crear" style= { {
                     color: '#fff',
