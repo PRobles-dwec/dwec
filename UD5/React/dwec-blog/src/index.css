@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
- 
 * {
   margin: 0;
   font-family: "Quicksand";
@@ -10,7 +9,6 @@
   align-items: center;
   width: 800px;
   border-bottom: 2px solid #f1356d;
- 
 }
 .navbar h1 {
   color: #f1356d;
@@ -33,7 +31,6 @@
 }
 
 body{
-  background-color: #333;
   width: 100%;
 }
 
@@ -44,15 +41,12 @@ body{
   border: 2px solid #f1356d;
 }
 .blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
 }
 .blog-preview h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px;
-}
-p{
-  color: white;
 }
 
 footer{
@@ -64,12 +58,12 @@ footer{
 }
 
 h1{
-  color: white;
+
   margin-top: 5px;
 }
 
 h2{
-  color: white;
+
   text-align: center;
   margin-top: 10px;
 }
@@ -84,5 +78,73 @@ p{
 }
 .blog-preview a{
   text-decoration: none;
-  
+}
+
+.blog-detalles h2{
+  font-size: 20px;
+  color: #f1356d;
+}
+
+.blog-detalles div{
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.blog-detalles button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 0px;
+  border-radius: 0px;
+  cursor: pointer;
+}
+.crear{
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.crear label {
+  text-align: left;
+  display: block;
+}
+.crear h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+
+.crear input, .crear textarea, .crear select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.crear button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ande-vas{
+  text-align: center;
+  text-decoration: none;
+}
+.ande-vas a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.ande-vas button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
