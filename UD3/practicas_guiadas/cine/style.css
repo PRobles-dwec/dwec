@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: #242333;   
+body {
+    background-color: #242333;
     display: flex;
     flex-direction: column;
     color: #fff;
@@ -20,7 +20,7 @@ body{
     margin: 20px 0;
 }
 
-.contenidor-pelicula select{
+.contenidor-pelicula select {
     background-color: #fff;
     border: 0;
     border-radius: 5px;
@@ -28,7 +28,7 @@ body{
     margin-left: 10px;
     padding: 5px 15px 5px 15px;
 
-    /* NO USAR!!! */
+    /* NO USAR!!!*/
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
@@ -39,7 +39,7 @@ body{
     margin-bottom: 30px;
 }
 
-.seient{
+.seient {
     background-color: #444451;
     height: 12px;
     width: 15px;
@@ -48,11 +48,11 @@ body{
     border-top-right-radius: 10px;
 }
 
-.seient.seleccionat{
-    background-color: #6feaf6;    
+.seient.seleccionat {
+    background-color: #6feaf6;
 }
 
-.seient.ocupat{
+.seient.ocupat {
     background-color: #fff;
 }
 
@@ -84,22 +84,22 @@ body{
     justify-content: space-between;
 }
 
-.llegenda li{
+.llegenda li {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 10px;
 }
 
-.llegenda li small{
-    margin-left: 5px;
+.llegenda li small {
+    margin-left: 2px;
 }
 
-.fila{
-    display: flex;    
+.fila {
+    display: flex;
 }
 
-.pantalla{
+.pantalla {
     background-color: #fff;
     height: 70px;
     width: 100%;
@@ -112,7 +112,6 @@ p.text {
     margin: 5px 0;
 }
 
-p.text span{
+p.text span {
     color: #6feaf6;
 }
-
