@@ -1,7 +1,6 @@
 const Select = () => {
     return ( 
-        <div className="contenidor-pelicula">
-            <h1>Ocimax Mahón</h1>
+        <div className="contenidor-pelicula">            
         <label>Escoja una película</label>
         <select id="pelicula">
             <option value="10"> Black Panther: Wakanda Forever (10€) </option>
