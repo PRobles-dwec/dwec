@@ -1,20 +1,19 @@
-import Menu from "./Menu";
-import Select from "./Select";
-import Comptador from "./Comptador";
-import Pantalla from "./Pantalla";
 import Header from "./Header";
-
+import Home from "./Home";
+import Footer from "./Footer";
+import React from 'react';
 
 function App() {
-  return (
+  
+  return (  
     <div className="App">
       <Header/>
-      <Select/>
-      <Menu/>
-      <Pantalla/>
-      <Comptador/>
-      {/* ME FALTA IMPLEMENTAR EL JS y EL CSS. */}
+      <div className="contenido"> 
+        <Home/>
+        <Footer/>
+      </div>          
     </div>
+    
   );
 }
 
