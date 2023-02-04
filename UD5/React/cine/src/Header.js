@@ -1,14 +1,11 @@
 const Header = () => {
-    return ( 
-        <header style={{width: "100%"}}>
-            <div>
-              <img src=""/>  
-            </div>
-            <div>
-                <h1>Ocimax Mahón</h1>
-            </div>            
-        </header>
-     );
+  return (     
+    <header>
+      <div className="photoName">
+        <img  src="https://www.aficine.com/wp-content/uploads/2016/01/mao.jpg"/>  
+     </div>                                   
+    </header>
+  );
 }
  
 export default Header;
