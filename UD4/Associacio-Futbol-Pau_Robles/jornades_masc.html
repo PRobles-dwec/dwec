@@ -7,30 +7,27 @@
     <title>Associació D'Amics del Futbol</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <!-- Aquesta és la nostra capçalera principal que s'utilitza
         en totes les pàgines del nostre lloc web -->
     <header>
       <div style="text-align: center;">
-        <img src="./img/logo.png">
+        <h1>ASOCIACIÓN LOS ROBLES</h1>
       </div>  
     </header>
-
+    
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="travesses.html">Travessa</a></li>
-        <li><a href="jornades.html" onclick="escriureJornades()">Jornada</a></li>
-        <li><a href="contacte.html">Contacte</a></li>
+        <li><a href="index.html"><span class="material-symbols-outlined">
+          home
+          </span>INICI</a></li>
+        <li><a href="travesses.html"><span class="material-symbols-outlined">
+          description
+          </span>Travessa</a></li>       
+        <li><a href="contacte.html"><span class="material-symbols-outlined"> contact_page </span> Contacte </a></li>
       </ul>
-      
-      <!-- Un formulari de cerca és una altra manera no lineal
-        de navegar a través d'un lloc web. -->
-      <form>
-        <input type="search" name="q"/>
-        <input type="submit" value="Cerca" />
-      </form>
     </nav>
 
     <!-- Aquest és el contingut principal de la nostra pàgina -->
@@ -39,10 +36,6 @@
       <article>     
             <h3>Jornades Masculines</h3>
             <p id="jornadesMasc">
-                
-            </p>
-            <h3>Jornades Femenines</h3>
-            <p id="jornadesFem">
                 
             </p>
       </article>

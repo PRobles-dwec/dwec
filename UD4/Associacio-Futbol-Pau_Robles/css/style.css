@@ -1,19 +1,11 @@
-html, body {
-    margin: 0;
-    padding: 0;
-  }
 
-  html {
-    font-size: 10px;
+  body {
+    width: 100%;
+    margin: 0 auto;
     background-image: url("https://www.larazon.es/resizer/7S_8e1K_p1kSHdjz7YuM-LWVe44=/1800x1200/smart/filters:format(webp):quality(65)/cloudfront-eu-central-1.images.arcpublishing.com/larazon/IHOXSHGXH5FMHCRA3C26JOBGL4.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  
-  body {
-    width: 100%;
-    margin: 0 auto;
   }
   
   h1, h2, h3 {
@@ -68,8 +60,9 @@ html, body {
     color: black;
   }
   nav {
-    height: 50px;
+    padding: 5px;
     display: flex;
+    align-items: center;
     margin-bottom: 10px;
     background-color: #33629F;
   }
@@ -90,24 +83,19 @@ html, body {
   }
   
   nav a {
-    display: inline-block;
-    font-size: 2rem;
+    font-size: 20px;
     text-transform: uppercase;
     text-decoration: none;
     color: white;
   }
   
   nav form {
-    flex: 1;
-    display: flex;
-    align-items: center;
     height: 100%;
     padding: 0 2em;
   }
   
   input {
     font-size: 1.6rem;
-    height: 32px;
   }
   
   input[type="search"] {
@@ -138,11 +126,13 @@ html, body {
     color: white;
   }
   /* || main layout */
-  
+  a .material-symbols-outlined{
+    display: inline;
+  }
   main {
     display: flex;
   }
-  
+ 
   article {
     flex: 4;
   }

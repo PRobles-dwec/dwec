@@ -7,7 +7,8 @@ var aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primer
 var aleatorioLocalFemenino = segonaFem[Math.floor(Math.random() * segonaFem.length)];
 var aleatorioVisitanteFemenino = segonaFem[Math.floor(Math.random() * segonaFem.length)];
 
-function escriureJornades() {
+function escriureJornades(event) {
+    //event.preventDefault();
     var jornadesMasc = document.getElementById("jornadesMasc");
     var jornadesFem = document.getElementById("jornadesFem");
     
