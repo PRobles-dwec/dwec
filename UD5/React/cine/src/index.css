@@ -14,7 +14,20 @@
         font-family: 'Lato', sans-serif;
         margin: 0;
     }
-    
+    button {
+        background-color: #242333;
+        color: #fff;
+        font-size: 20px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    input[type="search"] {
+        font-size: 20px;
+    }
+
+    p{
+        display: inline;
+    }
     .contenidor-pelicula {
         margin: 20px 0;
     }
