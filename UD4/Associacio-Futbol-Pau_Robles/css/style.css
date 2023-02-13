@@ -53,6 +53,7 @@
   article, aside {
     background-color: #F7F7FF;
     padding: 1%;
+    text-align: center;
   }
   footer p{
     color: black;
@@ -130,9 +131,22 @@
   main {
     display: flex;
   }
-
+  a{
+    font-size: 20px;
+    text-align: center;
+  }
   article {
-    flex: 4;
+    width: 100%;
+  }
+  #buttons {
+    width: 50%;
+    margin: 5px;
+    
+  }
+  article a {
+    display: block;
+    margin: 15px;
+    font-size: 30px;
   }
   aside {
     flex: 1;
