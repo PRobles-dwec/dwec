@@ -1,193 +1,177 @@
-
-  body {
-    width: 100%;
-    margin: 0 auto;
-    background-color: #CAC4CE;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Sonsie One', cursive;
-    color: black;
-    text-align: center;
-  }
-  
-  p, input, li {
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: black;
-  }
-  
-  h1 {
-    font-size: 4rem;
-    text-align: center;
-    color: black;;
-  }
-  main article img{
-    width: 33%;
-    cursor: pointer;
-  }
-  img:hover{
-    opacity: 0.6;
-  }
-  h2 {
-    font-size: 3rem;
-    text-align: center;
-  }
-  #jornadesMasc{
-    text-align: center;
-  }
-  #jornadesFem{
-    text-align: center;
-  }
-  h3 {
-    font-size: 2.2rem;
-  }
-  
-  p, li {
-    font-size: 1.6rem;
-    line-height: 1.5;
-    text-align: center;
-  }
-  header div img:hover{
-    opacity: 1;
-  }
-  article, aside {
-    background-color: #F7F7FF;
-    padding: 1%;
-    text-align: center;
-  }
-  footer p{
-    color: black;
-  }
-  nav {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    background-color: #F7F7FF;
-  }
-  
-  nav ul {
-    padding: 0;
-    list-style-type: none;
-    flex: 2;
-    display: flex;
-  }
-  nav ul li a:hover{
-    background-color: #CAC4CE;
-  }
-  nav li {
-    display: inline;
-    text-align: center;
-    flex: 1;
-  }
-  
-  nav a {
-    font-size: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: black;
-  }
-  
-  nav form {
-    height: 100%;
-    padding: 0 2em;
-  }
-  
-  input {
-    font-size: 1.6rem;
-  }
-  
-  input[type="search"] {
-    flex: 3;
-    border-radius: 30px;
-    background-color: #F7F7FF;
-    opacity: 0.5;
-    border-color: black;
-  }
-  input[type="search"]:hover{
-    background-color: #F7F7FF;
-  }
-  input[type="submit"] {
-    flex: 1;
-    margin-left: 1rem;
-    background: #F7F7FF;
-    border-radius: 30px;
-    cursor: pointer;
-    color: black;
-  }
-  input[type="submit"]:hover {
-    flex: 1;
-    margin-left: 1rem;
-    background: #8FBFE0;
-    border-radius: 5px;
-    cursor: pointer;
-    opacity: 0.8;
-    color: black;
-  }
-  /* || main layout */
-  a .material-symbols-outlined{
-    display: inline;
-  }
-  main {
-    display: flex;
-  }
-  a{
-    font-size: 20px;
-    text-align: center;
-  }
-  article {
-    width: 100%;
-  }
-  #buttons {
-    width: 50%;
-    margin: 5px;
-    
-  }
-  article a {
-    display: block;
-    margin: 15px;
-    font-size: 30px;
-  }
-  aside {
-    flex: 1;
-    margin-left: 10px;
-    background-color: #F7F7FF;
-  }
-  ul li {
-    list-style-type: none;
-  }
-  aside ul li a {
-    padding-bottom: 10px; 
-    color: black;
-    text-decoration: none;    
-  } 
-  aside li a {
-    padding-bottom: 10px; 
-    color: black;
-    text-decoration: none;
-  } 
-  aside ul li a:hover{
-    background-color: #CAC4CE;
-  }
-  aside li a:hover{
-    background-color: #CAC4CE;
-  }
-  
-  footer p {
-    height: 50px;
-    color: black;
-  }
-
-  aside li{
-    list-style: none;
-    text-align: center;
-  }
-  aside li{
-    margin: 0.75rem;
-  }
-
-  footer {
-
-    width: 100%;
-    height: 20px;
-  }
+body {
+width: 100%;
+margin: 0 auto;
+background-color: #CAC4CE;
+}
+h1, h2, h3 {
+  font-family: 'Sonsie One', cursive;
+  color: black;
+  text-align: center;
+}
+p, input, li {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: black;
+}
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: black;;
+}
+main article img{
+  width: 33%;
+  cursor: pointer;
+}
+img:hover{
+  opacity: 0.6;
+}
+h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+#jornadesMasc{
+  text-align: center;
+}
+#jornadesFem{
+  text-align: center;
+}
+h3 {
+  font-size: 2.2rem;
+}
+p, li {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: center;
+}
+header div img:hover{
+  opacity: 1;
+}
+article, aside {
+  background-color: #F7F7FF;
+  padding: 1%;
+  text-align: center;
+}
+footer p{
+  color: black;
+}
+nav {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #F7F7FF;
+}
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  flex: 2;
+  display: flex;
+}
+nav ul li a:hover{
+  background-color: #CAC4CE;
+}
+nav li {
+  display: inline;
+  text-align: center;
+  flex: 1;
+}  
+nav a {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+} 
+nav form {
+  height: 100%;
+  padding: 0 2em;
+}  
+input {
+  font-size: 1.6rem;
+} 
+input[type="search"] {
+  flex: 3;
+  border-radius: 30px;
+  background-color: #F7F7FF;
+  opacity: 0.5;
+  border-color: black;
+}
+input[type="search"]:hover{
+  background-color: #F7F7FF;
+}
+input[type="submit"] {
+  flex: 1;
+  margin-left: 1rem;
+  background: #F7F7FF;
+  border-radius: 30px;
+  cursor: pointer;
+  color: black;
+}
+input[type="submit"]:hover {
+  flex: 1;
+  margin-left: 1rem;
+  background: #8FBFE0;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+  color: black;
+}
+a .material-symbols-outlined{
+  display: inline;
+}
+main {
+  display: flex;
+}
+a{
+  font-size: 20px;
+  text-align: center;
+}
+article {
+  width: 100%;
+}
+#buttons {
+  width: 50%;
+  margin: 5px;    
+}
+article a {
+  display: block;
+  margin: 15px;
+  font-size: 20px;
+}
+aside {
+  flex: 1;
+  margin-left: 10px;
+  background-color: #F7F7FF;
+}
+ul li {
+  list-style-type: none;
+}
+aside ul li a {
+  padding-bottom: 10px; 
+  color: black;
+  text-decoration: none;    
+} 
+aside li a {
+  padding-bottom: 10px; 
+  color: black;
+  text-decoration: none;
+} 
+aside ul li a:hover{
+  background-color: #CAC4CE;
+}
+aside li a:hover{
+  background-color: #CAC4CE;
+}
+footer p {
+  height: 50px;
+  color: black;
+}
+aside li{
+  list-style: none;
+  text-align: center;
+}
+aside li{
+  margin: 0.75rem;
+}
+footer {
+  width: 100%;
+  height: 20px;
+}

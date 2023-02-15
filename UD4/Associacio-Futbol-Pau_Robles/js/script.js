@@ -12,49 +12,48 @@ function escriureJornades() {
         var aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)];
         jornadesMasc.innerHTML += "20:00 " +  aleatorioLocalMasculino + " - " + aleatorioVisitanteMasculino + "<br>";
     }
-    if(jornadesMasc.style.visibility = "visible") {
-        jornadesMasc.style.visibility = "visible";
-        jornadesFem.style.visibility = "hidden";
-    }    
 }
 
 function escriureJornadesFem() {       
     let i = 0;
-    while(i < segonaFem.length) {
+    while(i < 4) {
         i++;
-        var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * primeraMasc.length)];
-        var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * primeraMasc.length)];    
+        var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)];
+        var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)];    
         jornadesFem.innerHTML += "20:00 " +  aleatorioLocalFemenino + " - " + aleatorioVisitanteFemenino + "<br>";        
     }
-    if(jornadesFem.style.visibility = "visible") {
-        jornadesFem.style.visibility = "visible";
-        jornadesMasc.style.visibility = "hidden";
-    }
+
 }
 
 function getRandom(min,max) {
     return Math.floor(Math.random() * (max - min)) + min; // Para que no salgan decimales.
-}
-
-var resultadoLocalMasculino = getRandom(0,6);
-var resultadoVisitanteMasculino = getRandom(0,6);
-
-var resultadoLocalFemenino = getRandom(0,6);
-var resultadoVisitanteFemenino = getRandom(0,6);
-
+}   
+        
 function escriureResultatsMasc() {
     var resultatsMasc = document.getElementById("resultatsMasc");
-    resultatsMasc.innerHTML += resultadoLocalMasculino + " - " + resultadoVisitanteMasculino + "<br>";
+   
+    for(let i = 0; i < 9; i++) {
+        var resultadoLocalMasculino = getRandom(0,6);
+        var resultadoVisitanteMasculino = getRandom(0,6);
+        resultatsMasc.innerHTML += resultadoLocalMasculino + " - " + resultadoVisitanteMasculino + "<br>";         
+    }
 }
+
 
 function escriureResultatsFem() {
     var resultatsFem = document.getElementById("resultatsFem");
-    resultatsFem.innerHTML += resultadoLocalFemenino + " - " + resultadoVisitanteFemenino + "<br>";
+
+    for(let i = 0; i < 4; i++) {
+        var resultadoLocalFemenino = getRandom(0,6);
+        var resultadoVisitanteFemenino = getRandom(0,6);
+        
+        resultatsFem.innerHTML += resultadoLocalFemenino + " - " + resultadoVisitanteFemenino + "<br>";                         
+    }   
+   
 }
 
+var resultatsM = document.getElementById("resultatsM");
+resultatsM.addEventListener("click", escriureResultatsMasc);
 
-let resultatsM = document.getElementById("resultatsM");
-resultatsM.addEventListener("click", escriureResultatsMasc, false);
-
-let resultatsF = document.getElementById("resultatsF");
-resultatsF.addEventListener("click", escriureResultatsFem, false);
+var resultatsF = document.getElementById("resultatsF");
+resultatsF.addEventListener("click", escriureResultatsFem);
