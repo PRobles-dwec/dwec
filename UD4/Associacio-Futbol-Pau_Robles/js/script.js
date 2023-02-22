@@ -1,28 +1,44 @@
 var primeraMasc = ["Almería", "Athletic Club", "Atlético de Madrid", "FC Barcelona", "Real Betis", "Cádiz", "Celta de Vigo", "Elche", "Espanyol", "Getafe", "Girona", "Real Mallorca", "Osasuna", "Rayo Vallecano", "Real Madrid", "Real Sociedad", "Sevilla", "Valencia", "Valladolid", "Villarreal"];
 var segonaFem = ["Alavés", "Alhama", "Atlético Fem", "Barcelona Fem", "Tenerife", "Levante Fem", "Madrid CFF", "Betis Fem", "R.Madrid Fem", "R. Sociedad Fem", "Sevilla Fem", "Huelva Fem", "Valencia Fem", "Villarreal Fem"];
 
+var horasPartidos = ["14:00", "16:00", "18:00", "20:00", "20:45", "21:00"];
+var diasPartidos = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
 var jornadesMasc = document.getElementById("jornadesMasc");    
 var jornadesFem = document.getElementById("jornadesFem");
 
-function escriureJornades() {        
-    let i = 0;
-    while(i < primeraMasc.length) {
-        i++;
+function escriureJornades() {  
+    let htmlJornadesMasc = "";
+
+    for(let i = 1; i < primeraMasc.length; i++) {
+        
         var aleatorioLocalMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)];
         var aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)];
-        jornadesMasc.innerHTML += "20:00 " +  aleatorioLocalMasculino + " - " + aleatorioVisitanteMasculino + "<br>";
+        var horasPartidosAleatorio = horasPartidos[Math.floor(Math.random() * horasPartidos.length)];
+        var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)];
+        
+        htmlJornadesMasc += "<p>" +  "<b>" + "JORNADA " + i + "</b>" +  "<br/>" + aleatorioLocalMasculino + " - " + aleatorioVisitanteMasculino + "</br>" + diasPartidosAleatorio + "</br>" + horasPartidosAleatorio  + "</p>";       
+
+        localStorage.setItem("jornadasMasculinas", JSON.stringify(aleatorioLocalMasculino) + " - " + JSON.stringify(aleatorioVisitanteMasculino));        
     }
+    jornadesMasc.innerHTML = htmlJornadesMasc;
 }
 
-function escriureJornadesFem() {       
-    let i = 0;
-    while(i < 4) {
-        i++;
-        var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)];
-        var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)];    
-        jornadesFem.innerHTML += "20:00 " +  aleatorioLocalFemenino + " - " + aleatorioVisitanteFemenino + "<br>";        
-    }
+function escriureJornadesFem() {  
+    let htmlJornadesFem = "";
 
+    for(let i = 1; i < segonaFem.length; i++) {
+        
+        var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)];
+        var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)];   
+        var horasPartidosAleatorio = horasPartidos[Math.floor(Math.random() * horasPartidos.length)];
+        var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; 
+
+        htmlJornadesFem += "<p>" +  "<b>" + "JORNADA " + i + "</b>" +  "<br/>" + aleatorioLocalFemenino + " - " + aleatorioVisitanteFemenino + "</br>" + diasPartidosAleatorio + "</br>" + horasPartidosAleatorio  + "</p>";       
+
+        localStorage.setItem("jornadasFemeninas", JSON.stringify(aleatorioLocalFemenino) + " - " + JSON.stringify(aleatorioVisitanteFemenino));
+    }
+    jornadesFem.innerHTML = htmlJornadesFem;
 }
 
 function getRandom(min,max) {
@@ -31,29 +47,36 @@ function getRandom(min,max) {
         
 function escriureResultatsMasc() {
     var resultatsMasc = document.getElementById("resultatsMasc");
-   
-    for(let i = 0; i < 9; i++) {
+    
+    let htmlResultatsMasc = "";
+
+    for(let i = 0; i < 10; i++) {
         var resultadoLocalMasculino = getRandom(0,6);
         var resultadoVisitanteMasculino = getRandom(0,6);
-        resultatsMasc.innerHTML += resultadoLocalMasculino + " - " + resultadoVisitanteMasculino + "<br>";         
-    }
-}
+        
+        htmlResultatsMasc += "<p>" + resultadoLocalMasculino + " - " + resultadoVisitanteMasculino + "</p>";                  
 
+        localStorage.setItem("resultadosMasculinos", JSON.stringify(resultadoLocalMasculino) + " - " + JSON.stringify(resultadoVisitanteMasculino));
+    }
+    resultatsMasc.innerHTML = htmlResultatsMasc;
+}
 
 function escriureResultatsFem() {
     var resultatsFem = document.getElementById("resultatsFem");
+    
+    let htmlResultatsFem = "";
 
     for(let i = 0; i < 4; i++) {
         var resultadoLocalFemenino = getRandom(0,6);
         var resultadoVisitanteFemenino = getRandom(0,6);
+
+        htmlResultatsFem += "<p>" + resultadoLocalFemenino + " - " + resultadoVisitanteFemenino + "</p>";                     
         
-        resultatsFem.innerHTML += resultadoLocalFemenino + " - " + resultadoVisitanteFemenino + "<br>";                         
-    }   
-   
+        localStorage.setItem("resultadosFemeninos", resultadoLocalFemenino + " - " + resultadoVisitanteFemenino);             
+
+    }
+    resultatsFem.innerHTML = htmlResultatsFem;
 }
 
 var resultatsM = document.getElementById("resultatsM");
 resultatsM.addEventListener("click", escriureResultatsMasc);
-
-var resultatsF = document.getElementById("resultatsF");
-resultatsF.addEventListener("click", escriureResultatsFem);

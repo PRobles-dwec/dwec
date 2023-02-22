@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Associació D'Amics del Futbol</title>
+    <title>Resultados Liga Femenina</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -14,7 +14,7 @@
         en totes les pàgines del nostre lloc web -->
     <header>
       <div style="text-align: center;">
-        <h1>Associació D'Amics del Futbol</h1>
+        <h1>Asociación De Amigos del Fútbol</h1>
       </div>  
     </header>
     
@@ -22,28 +22,24 @@
       <ul>
         <li><a href="index.html"><span class="material-symbols-outlined">
           home
-          </span>INICI</a></li>
+          </span>INICIO</a></li>
         <li><a href="travesses.html"><span class="material-symbols-outlined">
           description
-          </span>Travessa</a></li>       
-        <li><a href="contacte.html"><span class="material-symbols-outlined"> contact_page </span> Contacte </a></li>
+          </span>Quiniela</a></li>       
+        <li><a href="contacte.html"><span class="material-symbols-outlined"> contact_page </span> Contacto </a></li>
       </ul>
     </nav>
 
     <!-- Aquest és el contingut principal de la nostra pàgina -->
     <main>
       <!-- Pot contenir un o més articles -->
-      <article id="buttons">     
-        <button id="resultatsF"> Generar Resultats Lliga Femenina</button>        
-      </article>
       <article>
-            <h3>Resultats Femenins</h3>
-            <p id="resultatsFem"> </p>
+        <button onclick="escriureResultatsFem()"> Generar Resultados Liga Femenina</button>        
+        <h3>Resultados Femeninos</h3>
+        <p id="resultatsFem"> </p>
       </article>
     </main>
     <script src="./js/script.js"></script>
-    <!-- I aquest és el nostre peu principal que s'utilitza
-        a totes les pàgines del nostre lloc web -->
     <footer>
       <p>Pau Robles :: DWEC :: DAWB :: 22/23</p>
     </footer>

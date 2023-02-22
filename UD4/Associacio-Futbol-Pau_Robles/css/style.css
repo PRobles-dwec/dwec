@@ -1,64 +1,124 @@
+:root {
+  --primary: #ffffff;
+  --secondary: #2B2D42;
+  --fresh: #D80032;
+  --letras: #292929;
+}
 body {
-width: 100%;
-margin: 0 auto;
-background-color: #CAC4CE;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--primary);
 }
 h1, h2, h3 {
-  font-family: 'Sonsie One', cursive;
-  color: black;
+  font-family:'Franklin Gothic Medium';
+  color: var(--letras);
   text-align: center;
 }
 p, input, li {
   font-family: 'Open Sans Condensed', sans-serif;
-  color: black;
+  color: var(--letras);
+}
+table td{
+  border: 2px solid black;
+  background-color: #747ab4;
+  padding: 20px;
+  font-size: 25px;
+}
+table {
+  background-color: var(--secondary);
+  padding: 25px;
+  display: inline-block;
+}
+
+table button:hover {
+  cursor: pointer;
 }
 h1 {
   font-size: 4rem;
   text-align: center;
-  color: black;;
+  color: var(--letras);
 }
 main article img{
   width: 33%;
   cursor: pointer;
 }
-img:hover{
-  opacity: 0.6;
-}
+
 h2 {
   font-size: 3rem;
   text-align: center;
 }
-#jornadesMasc{
-  text-align: center;
+article img, table {
+  margin-top: 30px;
 }
-#jornadesFem{
+#jornadesMasc p{
+  background-color:var(--secondary);
+  color: var(--primary);
+  padding: 20px;
+  margin: 5px;
+  width: 20%;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+#jornadesFem p{
   text-align: center;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 20px;
+  margin: 5px;
+  width: 20%;
+  border-radius: 25px;
+  display: inline-block;
+}
+#resultatsMasc p {
+  text-align: center;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 20px;
+  margin: 5px;
+  width: 50px;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+#resultatsFem p {
+  text-align: center;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 20px;
+  margin: 5px;
+  width: 50px;
+  border-radius: 25px;
+  display: inline-block;
 }
 h3 {
   font-size: 2.2rem;
 }
 p, li {
-  font-size: 1.6rem;
-  line-height: 1.5;
+  font-size: 20px;  
   text-align: center;
 }
-header div img:hover{
-  opacity: 1;
+b {
+  margin-bottom: 20px;
+  font-size: 30px;
 }
+header img{
+  width: 100%;
+}
+
 article, aside {
-  background-color: #F7F7FF;
-  padding: 1%;
+
   text-align: center;
 }
 footer p{
-  color: black;
+  color: var(--primary);
+  bottom: 0;
+  padding: 17px;
 }
 nav {
   padding: 5px;
-  display: flex;
-  align-items: center;
   margin-bottom: 10px;
-  background-color: #F7F7FF;
+  background-color: #0E0F19;
 }
 nav ul {
   padding: 0;
@@ -66,104 +126,68 @@ nav ul {
   flex: 2;
   display: flex;
 }
-nav ul li a:hover{
-  background-color: #CAC4CE;
-}
 nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }  
+
 nav a {
   font-size: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  color: black;
+  color: white;
 } 
+
 nav form {
   height: 100%;
   padding: 0 2em;
 }  
-input {
-  font-size: 1.6rem;
-} 
-input[type="search"] {
-  flex: 3;
-  border-radius: 30px;
-  background-color: #F7F7FF;
-  opacity: 0.5;
-  border-color: black;
-}
-input[type="search"]:hover{
-  background-color: #F7F7FF;
-}
-input[type="submit"] {
-  flex: 1;
-  margin-left: 1rem;
-  background: #F7F7FF;
-  border-radius: 30px;
-  cursor: pointer;
-  color: black;
-}
-input[type="submit"]:hover {
-  flex: 1;
-  margin-left: 1rem;
-  background: #8FBFE0;
-  border-radius: 5px;
-  cursor: pointer;
-  opacity: 0.8;
-  color: black;
-}
+
 a .material-symbols-outlined{
   display: inline;
 }
 main {
   display: flex;
 }
-a{
+article a{
   font-size: 20px;
   text-align: center;
+  text-decoration: none;
+  color: black;
 }
 article {
   width: 100%;
 }
-#buttons {
-  width: 50%;
-  margin: 5px;    
+
+button {
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 15px;
+  margin-top: 10px;
 }
 article a {
-  display: block;
   margin: 15px;
-  font-size: 20px;
+  font-size: 30px;
 }
 aside {
   flex: 1;
   margin-left: 10px;
-  background-color: #F7F7FF;
 }
 ul li {
   list-style-type: none;
 }
 aside ul li a {
   padding-bottom: 10px; 
-  color: black;
+  color: var(--letras);
   text-decoration: none;    
 } 
 aside li a {
   padding-bottom: 10px; 
-  color: black;
+  color: white;
   text-decoration: none;
 } 
-aside ul li a:hover{
-  background-color: #CAC4CE;
-}
-aside li a:hover{
-  background-color: #CAC4CE;
-}
-footer p {
-  height: 50px;
-  color: black;
-}
+
 aside li{
   list-style: none;
   text-align: center;
@@ -173,5 +197,6 @@ aside li{
 }
 footer {
   width: 100%;
-  height: 20px;
+  height: 60px;
+  background-color: #0E0F19;   
 }
