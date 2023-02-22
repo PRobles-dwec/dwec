@@ -72,7 +72,7 @@ function escriureResultatsFem() {
 
         htmlResultatsFem += "<p>" + resultadoLocalFemenino + " - " + resultadoVisitanteFemenino + "</p>";                     
         
-        localStorage.setItem("resultadosFemeninos", resultadoLocalFemenino + " - " + resultadoVisitanteFemenino);             
+        localStorage.setItem("resultadosFemeninos", JSON.stringify(resultadoLocalFemenino) + " - " + JSON.stringify(resultadoVisitanteFemenino));             
 
     }
     resultatsFem.innerHTML = htmlResultatsFem;
