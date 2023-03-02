@@ -1,78 +1,77 @@
-:root {
+:root { /* Para guardar los colores más importante */
   --primary: #ffffff;
   --secondary: #2B2D42;
   --fresh: #D80032;
   --letras: #292929;
 }
-body {
+body { /* CSS para el cuerpo de la página. */
   width: 100%;
   margin: 0 auto;
-  background-color: var(--primary);
+  background-color: var(--letras);
+
 }
-h1, h2, h3 {
+h1, h2, h3 { /* CSS para los títulos. */
   font-family:'Franklin Gothic Medium';
-  color: var(--letras);
+  color: var(--primary);
   text-align: center;
 }
-p, input, li {
+p, li { /* CSS para los párrafos y las listas de ítems */
   font-family: 'Open Sans Condensed', sans-serif;
-  color: var(--letras);
+  color: var(--primary);
+  font-size: 20px;  
+  text-align: center;
 }
-table td{
+table td{ /* CSS para las columnas de las tablas */
   border: 2px solid black;
   background-color: #747ab4;
   padding: 20px;
-  font-size: 25px;
+  font-size: 23px;
+  color: var(--primary);
 }
-table {
+table { /* CSS para la tabla */
   background-color: var(--secondary);
   padding: 25px;
   display: inline-block;
 }
-
-table button:hover {
+table button:hover { /* CSS para cuándo pulses encima del botón de las tablas */
   cursor: pointer;
 }
-h1 {
+h1 { /* CSS para el título más grande */
   font-size: 4rem;
   text-align: center;
-  color: var(--letras);
+  color: var(--primary);
 }
-main article img{
+main article img{ /* CSS para las imágenes de los artículos que están en el contenido principal */
   width: 33%;
   cursor: pointer;
 }
-
-h2 {
+h2 { /* CSS para el segundo título más grande */
   font-size: 3rem;
   text-align: center;
 }
-article img, table {
+article img, table { /* CSS para las imágenes y las tablas de dentro de los artículos */
   margin-top: 30px;
 }
-#jornadesMasc p{
-  background-color:var(--secondary);
+#jornadesMasc p{ /* CSS para los párrafos de jornadesMasc */
+  background-color: #125E8A;
   color: var(--primary);
-  padding: 20px;
+  padding: 30px;
   margin: 5px;
-  width: 20%;
   border-radius: 25px;
   display: inline-block;
 }
-
-#jornadesFem p{
+#jornadesFem p{ /* CSS para los párrafos de jornadesFem */
   text-align: center;
-  background-color: var(--secondary);
+  background-color: #125E8A;
   color: var(--primary);
-  padding: 20px;
+  padding: 30px;
   margin: 5px;
-  width: 20%;
   border-radius: 25px;
   display: inline-block;
 }
-#resultatsMasc p {
+#resultatsMasc p { /* CSS para los párrafos de resultatsMasc */
   text-align: center;
-  background-color: var(--secondary);
+  background-color: #125E8A;
   color: var(--primary);
   padding: 20px;
   margin: 5px;
@@ -80,10 +79,9 @@ article img, table {
   border-radius: 25px;
   display: inline-block;
 }
-
-#resultatsFem p {
+#resultatsFem p { /* CSS para los párrafos de resultatsFem */
   text-align: center;
-  background-color: var(--secondary);
+  background-color: #125E8A;
   color: var(--primary);
   padding: 20px;
   margin: 5px;
@@ -91,95 +89,91 @@ article img, table {
   border-radius: 25px;
   display: inline-block;
 }
-h3 {
+h3 { /* CSS para el tercer título más grande */
   font-size: 2.2rem;
 }
-p, li {
-  font-size: 20px;  
-  text-align: center;
-}
-b {
+b { /* CSS para los elementos en negrita */
   margin-bottom: 20px;
   font-size: 30px;
 }
-header img{
+header img{ /* CSS para la imagen de la cabecera */
   width: 100%;
 }
-
-article, aside {
-
+article, aside { /* CSS para el artículo y la cabecera */
   text-align: center;
 }
-footer p{
+footer p{ /* CSS para el párrafo del pie de página */
   color: var(--primary);
   bottom: 0;
   padding: 17px;
 }
-nav {
+nav { /* CSS para el menú de navegación. */
   padding: 5px;
   margin-bottom: 10px;
-  background-color: #0E0F19;
+  background-color: #125E8A;  
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  border-radius: 10px;
 }
-nav ul {
+nav ul { /* CSS para las listas desordenadas del menú de navegación */
   padding: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
 }
-nav li {
+nav li { /* CSS para las listas de ítems del menú de navegación */
   display: inline;
   text-align: center;
   flex: 1;
 }  
-
-nav a {
+nav a { /* CSS para los enlaces del menú de navegación */
   font-size: 20px;
-  text-transform: uppercase;
+  text-transform:uppercase;
   text-decoration: none;
   color: white;
 } 
-
-nav form {
+nav form { /* CSS para los formularios del menú de navegación */
   height: 100%;
   padding: 0 2em;
 }  
-
 a .material-symbols-outlined{
   display: inline;
 }
-main {
+main { /* CSS para el contenido principal de la página */
   display: flex;
 }
-article a{
-  font-size: 20px;
+article a{ /* CSS para los enlaces de los artículos */
+  font-size: 30px;
   text-align: center;
   text-decoration: none;
-  color: black;
-}
-article {
-  width: 100%;
-}
-
-button {
-  background-color: var(--secondary);
   color: var(--primary);
-  padding: 15px;
+  margin: 15px;
+}
+article { /* CSS para los artículos */
+  width: 100%;      
+}
+th {
+  font-size: 25px;
+  color: white;
+}
+button { /* CSS para los botones */
+  background-color: #125E8A;
+  color: var(--primary);
   margin-top: 10px;
 }
-article a {
-  margin: 15px;
-  font-size: 30px;
-}
-aside {
+
+aside { /* CSS para el menú lateral. */
   flex: 1;
   margin-left: 10px;
+  background: transparent;
+  box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.1 );
+  border-radius: 20px;
 }
 ul li {
   list-style-type: none;
 }
 aside ul li a {
   padding-bottom: 10px; 
-  color: var(--letras);
+  color: var(--primary);
   text-decoration: none;    
 } 
 aside li a {
@@ -187,16 +181,15 @@ aside li a {
   color: white;
   text-decoration: none;
 } 
-
 aside li{
   list-style: none;
   text-align: center;
-}
-aside li{
   margin: 0.75rem;
 }
-footer {
+footer { /* CSS para el pie de página. */
   width: 100%;
   height: 60px;
-  background-color: #0E0F19;   
+  background-color: #125E8A; 
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  border-radius: 10px; 
 }
