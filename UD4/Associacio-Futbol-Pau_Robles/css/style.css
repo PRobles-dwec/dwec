@@ -4,11 +4,11 @@
   --fresh: #D80032;
   --letras: #292929;
 }
+
 body { /* CSS para el cuerpo de la página. */
   width: 100%;
   margin: 0 auto;
-  background-color: var(--letras);
-
+  background-color: var(--letras);  
 }
 h1, h2, h3 { /* CSS para los títulos. */
   font-family:'Franklin Gothic Medium';
@@ -21,10 +21,9 @@ p, li { /* CSS para los párrafos y las listas de ítems */
   font-size: 20px;  
   text-align: center;
 }
-table td{ /* CSS para las columnas de las tablas */
-  border: 2px solid black;
+table td{ /* CSS para las columnas de las tablas */  
   background-color: #747ab4;
-  padding: 20px;
+  padding: 10px;
   font-size: 23px;
   color: var(--primary);
 }
@@ -156,17 +155,41 @@ th {
   color: white;
 }
 button { /* CSS para los botones */
-  background-color: #125E8A;
+  background-image: linear-gradient(150deg, #9500ff, #09f, #00DDFF );
   color: var(--primary);
-  margin-top: 10px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 20px;
+  transition: .3s;
+  border: 0;
+  display: flex;
+  margin: 20px;  
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
-
+button span {
+  background-color: #111;
+  padding: 16px 24px;
+  border-radius: 6px;
+  transition: .3s;
+}
+button:hover span {
+  background: none;
+}
+button:active {
+  transform: scale(0.9);
+}
 aside { /* CSS para el menú lateral. */
   flex: 1;
   margin-left: 10px;
   background: transparent;
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.1 );
   border-radius: 20px;
+}
+table {
+  margin: 5px;
 }
 ul li {
   list-style-type: none;

@@ -8,17 +8,18 @@ var jornadesFem = document.getElementById("jornadesFem"); // Recogemos el elemen
 var resultatsMasc = document.getElementById("resultatsMasc");
 var resultatsFem = document.getElementById("resultatsFem");
 
+var tabla = document.getElementById("tabla");  
+
 function escriureJornades() {   // Función que escribe las jornadas masculinas
-    var arrayJornades = []; // Aquí se guardarán las 14 jornadas.    
-    let htmlJornades = "";
+    var arrayJornades = []; // Aquí se guardarán las 14 jornadas.
+    let htmlJornades = "";            
 
     if(document.title == "Jornadas Masculinas") {       
         for(let i = 0; i < 10; i++) { // Recorremos hasta que llegue a 10.        
             var aleatorioLocalMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo local masculino, que será aleatorio.
             var aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo visitante masculino, que será aleatorio.
 
-            var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.
-            //var horasPartidosAleatorio = horasPartidos[Math.floor(Math.random() * horasPartidos.length)]; // Variable para guardar las horas de los partidos, que será aleatorio.            
+            var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.            
             
             while(aleatorioLocalMasculino === aleatorioVisitanteMasculino) {
                 aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)];
@@ -26,16 +27,14 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
             arrayJornades.push({local: aleatorioLocalMasculino, visitante: aleatorioVisitanteMasculino});
             console.log(arrayJornades);            
             
-            htmlJornades += "<table>" + "<tr>" + "<th>" + "Local" + "</th>" + "<th>" + "  " + "</th>" + "<th>" + "Visitante" + "</th>" + "<th>" + "Hora" + "</th>" + "<th>" + "Día" + "</th>" + "</tr>" + "<tr>" + "<td>" + aleatorioLocalMasculino + "</td>" + "<td>" + " - " + "</td>" + "<td>" + aleatorioVisitanteMasculino + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>" + "</table>"; // Asignamos las variables declaradas a la cadena vacía, en dónde guardaremos las variables aleatorias.                             
+            htmlJornades += "<table>" + "<tr>" + "<th>" + "Local" + "</th>" + "<th>" + "  " + "</th>" + "<th>" + "Visitante" + "</th>" + "<th>" + "Hora" + "</th>" + "<th>" + "Día" + "</th>" + "</tr>" + "<tr>" + "<td>" + aleatorioLocalMasculino + "</td>" + "<td>" + " - " + "</td>" + "<td>" + aleatorioVisitanteMasculino + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>" + "</table>"; // Asignamos las variables declaradas a la cadena vacía, en dónde guardaremos las variables aleatorias.                                         
         }
         jornadesMasc.innerHTML = htmlJornades;                   
     } else {
-        for(let i = 0; i < 4; i++) { // Recorremos para que sólo salgan 4.
-        
+        for(let i = 0; i < 4; i++) { // Recorremos para que sólo salgan 4.        
             var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo local femenino, que será aleatorio.
             var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo visitante femenino, que será aleatorio.  
-
-            //var horasPartidosAleatorio = horasPartidos[Math.floor(Math.random() * horasPartidos.length)]; // Variable para guardar las horas de los partidos, que será aleatorio.
+           
             var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.
             
             while(aleatorioLocalFemenino === aleatorioVisitanteFemenino) {
@@ -50,7 +49,7 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
         jornadesFem.innerHTML = htmlJornades;                                
     }
     localStorage.setItem("jornadas", JSON.stringify(arrayJornades)); // Guardamos las variables en el LocalStorage. 
-    console.log(arrayJornades);    
+    console.log(arrayJornades);   
 }
 
 function getRandom(min,max) { // Función para elegir un número aleatorio entre 2 números.
@@ -64,9 +63,7 @@ function getRandomHours() {
 }
 
 function escriureResultats() { // Función para escribir los resultados masculinos
-    
     var arrayResultats = [];
-
     let htmlResultats = "";
 
     if(document.title == "Resultados Liga Masculina") {
@@ -76,7 +73,7 @@ function escriureResultats() { // Función para escribir los resultados masculin
                         
             arrayResultats.push({local: resultadoLocalMasculino, visitante: resultadoVisitanteMasculino}); 
             
-            htmlResultats += "<table>" + "<tr>" + "<td>" + "Local" + "</td>" + "<td>" + "  " + "</td>" + "<td>" + "Visitante" + "</td>" + "</tr>" + "<tr>" + "<td>" + resultadoLocalMasculino + "</td>" + "<td>" + " - " + "</td>" + "<td>" + resultadoVisitanteMasculino + "</td>" + "</tr>" + "</table>"; // Asignamos las variables declaradas a la cadena vacía, en dónde guardaremos las variables aleatorias. 
+            htmlResultats += "<table>" + "<tr>" + "<th>" + "Local" + "</th>" + "<th>" + "  " + "</th>" + "<th>" + "Visitante" + "</th>" + "</tr>" + "<tr>" + "<td>" + resultadoLocalMasculino + "</td>" + "<td>" + " - " + "</td>" + "<td>" + resultadoVisitanteMasculino + "</td>" + "</tr>" + "</table>"; // Asignamos las variables declaradas a la cadena vacía, en dónde guardaremos las variables aleatorias. 
         } 
         resultatsMasc.innerHTML = htmlResultats; // Asignamos al elemento dónde íbamos a imprimir los resultados masculinos, la cadena que ahora tiene las variables aleatorias.
     }else {        
@@ -86,7 +83,7 @@ function escriureResultats() { // Función para escribir los resultados masculin
             
             arrayResultats.push({local: resultadoLocalFemenino, visitante: resultadoVisitanteFemenino});
             
-            htmlResultats += "<table>" + "<tr>" + "<td>" + "Local" + "</td>" + "<td>" + "  " + "</td>" + "<td>" + "Visitante" + "</td>" + "</tr>" + "<tr>" + "<td>" + resultadoLocalFemenino + "</td>" + "<td>" + " - " + "</td>" + "<td>" + resultadoVisitanteFemenino + "</td>" + "</tr>" + "</table>"; // Asignamos las variables declaradas a la cadena vacía, en dónde guardaremos las variables aleatorias.                  
+            htmlResultats += "<table>" + "<tr>" + "<th>" + "Local" + "</th>" + "<th>" + "  " + "</th>" + "<th>" + "Visitante" + "</th>" + "</tr>" + "<tr>" + "<td>" + resultadoLocalFemenino + "</td>" + "<td>" + " - " + "</td>" + "<td>" + resultadoVisitanteFemenino + "</td>" + "</tr>" + "</table>"; // Asignamos las variables declaradas a la cadena vacía, en dónde guardaremos las variables aleatorias.                  
         }
         resultatsFem.innerHTML = htmlResultats;
     }
@@ -95,5 +92,78 @@ function escriureResultats() { // Función para escribir los resultados masculin
     console.log(arrayResultats);
 }
 
-var resultatsM = document.getElementById("resultatsM"); // Recoge el botón para generar resultados masculinos.
-resultatsM.addEventListener("click", escriureResultats); // Cuando haga click, que inicie la función para escribir resultados masculinos.
+// function comprobarQuiniela() {
+    
+// }
+
+function dibuixarTaulaPronostics() {        
+    const contenedor_tabla = document.getElementById("contenedor_tabla");
+
+    const tabla = document.createElement("table");
+    
+    const tablaCuerpo = document.createElement("tbody");
+
+    tabla.innerHTML = "<th>" + "Jornadas" + "</th>" + "<th>" + "Partidos" + "</th>" + "<th>" + "1" + "</th>" + "<th>" + "X" + "</th>"+ "<th>" + "2" + "</th>" +"<th>" + "Resultados" + "</th>"; 
+    // Creando las filas
+    for(var i = 1; i <= 14; i++) {
+        // Creamos las filas de la tabla
+        
+        var filas = document.createElement("tr");
+        
+        for(var j = 0; j < 1; j++) {
+            // Creamos las columnas, con los nodos de texto. Imprimirá los partidos.
+            var celda = document.createElement("td");
+            var celdaTxt = document.createTextNode(i + ".");
+
+            celda.appendChild(celdaTxt);
+            filas.appendChild(celda);
+        }
+        for(var j = 0; j < 1; j++) {
+            // Creamos las columnas, con los nodos de texto. Aquí mostraremos los partidos.
+            var celda = document.createElement("td");
+            
+            var jornadasAux = JSON.parse(localStorage.getItem("jornadas"));
+            var celdaTxt = document.createTextNode(jornadasAux[j].local); 
+            
+            celda.appendChild(celdaTxt);
+            filas.appendChild(celda);
+        }
+        for(var j = 0; j < 3; j++) {
+            // Creamos las columnas, con los nodos de texto. Para que el usuario haga los pronósticos.
+            var celda = document.createElement("td");           
+            var celdaX = document.createElement("td");           
+            var celda2 = document.createElement("td");           
+                                   
+            var celdaInput = document.createElement("input");            
+            celdaInput.setAttribute("type", "radio");
+            
+            var celdaInputX = document.createElement("input");
+            celdaInputX.setAttribute("type", "radio");
+            
+            var celdaInput2 = document.createElement("input");
+            celdaInput2.setAttribute("type", "radio");           
+
+            celda.appendChild(celdaInput);
+            
+            celdaX.appendChild(celdaInputX);
+
+            celda2.appendChild(celdaInput2);
+            filas.appendChild(celda);           
+        }
+        for(var j = 0; j < 1; j++) {
+            // Creamos las columnas, con los nodos de texto. Esto será para imprimir los resultados de la quiniela.
+            var celda = document.createElement("td");
+            var celdaTxt = document.createTextNode(localStorage.getItem("resultados"));
+
+            celda.appendChild(celdaTxt);
+            filas.appendChild(celda);
+        }
+        tablaCuerpo.appendChild(filas);
+        tabla.appendChild(tablaCuerpo);
+
+        contenedor_tabla.appendChild(tabla);         
+    }    
+}
+    if(document.title == "Apuestas Deportivas") {         
+        dibuixarTaulaPronostics();
+    }
