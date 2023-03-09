@@ -141,8 +141,7 @@ function comprobarQuiniela() {
         }
         if(element.local < element.visitante) { // Si el resultado local, es menor que el resultado visitante.
             resultados_tabla.innerHTML += "<tr>"+ "<td>" + "2" + "</td>" + "</tr>"; // Imprimimos que es 2, haciendo referencia a que el local es menor que el visitante.          
-        }
-        //tabla.innerHTML += "<tr>"+ "<td>" + element.local + " - " + element.visitante + "</td>" + "</tr>";        
+        }     
     });
     if(document.getElementById('input1_"+index+"').checked == false & document.getElementById('inputX_"+index+"').checked == false & document.getElementById('input2_"+index+"').checked == false) { // Si ninguno de los inputs han sido seleccionados.
         alert("Marca tus pronósticos");
