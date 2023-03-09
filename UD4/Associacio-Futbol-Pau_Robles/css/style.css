@@ -30,7 +30,6 @@ table td{ /* CSS para las columnas de las tablas */
 table { /* CSS para la tabla */
   background-color: var(--secondary);
   padding: 25px;
-  display: inline-block;
 }
 table button:hover { /* CSS para cuándo pulses encima del botón de las tablas */
   cursor: pointer;
@@ -40,6 +39,7 @@ h1 { /* CSS para el título más grande */
   text-align: center;
   color: var(--primary);
 }
+
 main article img{ /* CSS para las imágenes de los artículos que están en el contenido principal */
   width: 33%;
   cursor: pointer;
@@ -51,40 +51,34 @@ h2 { /* CSS para el segundo título más grande */
 article img, table { /* CSS para las imágenes y las tablas de dentro de los artículos */
   margin-top: 30px;
 }
-#jornadesMasc p{ /* CSS para los párrafos de jornadesMasc */
-  background-color: #125E8A;
+#jornadesMasc table{ /* CSS para los párrafos de jornadesMasc */
   color: var(--primary);
   padding: 30px;
   margin: 5px;
   border-radius: 25px;
   display: inline-block;
 }
-#jornadesFem p{ /* CSS para los párrafos de jornadesFem */
+#jornadesFem table{ /* CSS para los párrafos de jornadesFem */
   text-align: center;
-  background-color: #125E8A;
   color: var(--primary);
   padding: 30px;
   margin: 5px;
   border-radius: 25px;
   display: inline-block;
 }
-#resultatsMasc p { /* CSS para los párrafos de resultatsMasc */
+#resultatsMasc table { /* CSS para los párrafos de resultatsMasc */
   text-align: center;
-  background-color: #125E8A;
   color: var(--primary);
   padding: 20px;
   margin: 5px;
-  width: 50px;
   border-radius: 25px;
   display: inline-block;
 }
-#resultatsFem p { /* CSS para los párrafos de resultatsFem */
+#resultatsFem table { /* CSS para los párrafos de resultatsFem */
   text-align: center;
-  background-color: #125E8A;
   color: var(--primary);
   padding: 20px;
   margin: 5px;
-  width: 50px;
   border-radius: 25px;
   display: inline-block;
 }
@@ -101,11 +95,6 @@ header img{ /* CSS para la imagen de la cabecera */
 article, aside { /* CSS para el artículo y la cabecera */
   text-align: center;
 }
-footer p{ /* CSS para el párrafo del pie de página */
-  color: var(--primary);
-  bottom: 0;
-  padding: 17px;
-}
 nav { /* CSS para el menú de navegación. */
   padding: 5px;
   margin-bottom: 10px;
@@ -114,9 +103,7 @@ nav { /* CSS para el menú de navegación. */
   border-radius: 10px;
 }
 nav ul { /* CSS para las listas desordenadas del menú de navegación */
-  padding: 0;
   list-style-type: none;
-  flex: 2;
   display: flex;
 }
 nav li { /* CSS para las listas de ítems del menú de navegación */
@@ -150,7 +137,7 @@ article a{ /* CSS para los enlaces de los artículos */
 article { /* CSS para los artículos */
   width: 100%;      
 }
-th {
+th { /* CSS para la cabecera de las tablas */
   font-size: 25px;
   color: white;
 }
@@ -169,16 +156,16 @@ button { /* CSS para los botones */
   left: 50%;
   transform: translate(-50%);
 }
-button span {
+button span { /* CSS del span del botón */
   background-color: #111;
   padding: 16px 24px;
   border-radius: 6px;
   transition: .3s;
 }
-button:hover span {
+button:hover span { /* CSS para cuando pasemos por encima del span del botón */
   background: none;
 }
-button:active {
+button:active { /* CSS para cuando el botón esté activo */
   transform: scale(0.9);
 }
 aside { /* CSS para el menú lateral. */
@@ -188,31 +175,50 @@ aside { /* CSS para el menú lateral. */
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.1 );
   border-radius: 20px;
 }
-table {
+table { /* CSS para la tabla */
   margin: 5px;
+}
+#resultados_tabla { /* CSS para la tabla de resultados */
+  width: 180px;
+  display: none;  
+}
+#contenedor_tabla { /* CSS para el contenedor de la tabla */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#pronosticos_tabla{ /* CSS para la tabla de la quiniela*/
+  width: 800px;
 }
 ul li {
   list-style-type: none;
 }
-aside ul li a {
+aside ul li a { /* CSS para la lista desordenada de los enlaces de la lista de ítems de la barra lateral */
   padding-bottom: 10px; 
   color: var(--primary);
   text-decoration: none;    
 } 
-aside li a {
+aside li a { /* CSS para los enlaces de la lista de ítems de la barra lateral */
   padding-bottom: 10px; 
   color: white;
   text-decoration: none;
 } 
-aside li{
+aside li{ /* CSS para la lista de ítems de la barra lateral */
   list-style: none;
   text-align: center;
   margin: 0.75rem;
 }
 footer { /* CSS para el pie de página. */
   width: 100%;
-  height: 60px;
+
   background-color: #125E8A; 
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   border-radius: 10px; 
+  margin-top: 15px;
+}
+
+footer img{ /* CSS para las imágenes del footer. */
+  padding: 5px;
+  width: 150px;  
+  vertical-align: middle;
 }
