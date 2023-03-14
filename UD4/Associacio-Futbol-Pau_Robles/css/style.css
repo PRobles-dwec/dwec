@@ -51,36 +51,37 @@ h2 { /* CSS para el segundo título más grande */
 article img, table { /* CSS para las imágenes y las tablas de dentro de los artículos */
   margin-top: 30px;
 }
-#jornadesMasc table{ /* CSS para los párrafos de jornadesMasc */
+#jornadesMasc{ /* CSS para los párrafos de jornadesMasc */
   color: var(--primary);
+  text-align: center;
   padding: 30px;
   margin: 5px;
   border-radius: 25px;
-  display: inline-block;
+  display: none;
 }
-#jornadesFem table{ /* CSS para los párrafos de jornadesFem */
+#jornadesFem{ /* CSS para los párrafos de jornadesFem */
   text-align: center;
   color: var(--primary);
   padding: 30px;
   margin: 5px;
   border-radius: 25px;
-  display: inline-block;
+  display: none;
 }
-#resultatsMasc table { /* CSS para los párrafos de resultatsMasc */
+#resultatsMasc { /* CSS para los párrafos de resultatsMasc */
   text-align: center;
   color: var(--primary);
   padding: 20px;
   margin: 5px;
   border-radius: 25px;
-  display: inline-block;
+  display: none;
 }
-#resultatsFem table { /* CSS para los párrafos de resultatsFem */
+#resultatsFem { /* CSS para los párrafos de resultatsFem */
   text-align: center;
   color: var(--primary);
   padding: 20px;
   margin: 5px;
   border-radius: 25px;
-  display: inline-block;
+  display: none;
 }
 h3 { /* CSS para el tercer título más grande */
   font-size: 2.2rem;
@@ -178,9 +179,10 @@ aside { /* CSS para el menú lateral. */
 table { /* CSS para la tabla */
   margin: 5px;
 }
-#resultados_tabla { /* CSS para la tabla de resultados */
+#resultados_tabla{ /* CSS para la tabla de resultados */
   width: 180px;
-  display: none;  
+  display: none; 
+  border-radius: 25px;
 }
 #contenedor_tabla { /* CSS para el contenedor de la tabla */
   width: 100%;
@@ -189,6 +191,7 @@ table { /* CSS para la tabla */
 }
 #pronosticos_tabla{ /* CSS para la tabla de la quiniela*/
   width: 800px;
+  border-radius: 25px;  
 }
 ul li {
   list-style-type: none;
