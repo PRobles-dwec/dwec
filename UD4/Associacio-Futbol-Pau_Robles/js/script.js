@@ -275,7 +275,6 @@ function equipoLocal() {
                 // Para los demás partidos, que no son el primero.
                 partido.local = nombresEquipo[indiceEquipo];
                 indiceEquipo++;
-                console.log(partido.local);
             }
         });
     }); 
@@ -293,12 +292,10 @@ function equipoVisitante() {
                 // Para los demás partidos, que no son el primero.
                 partido.visitante = nombresEquipo[indiceEquipo];
                 indiceEquipo--;
-                console.log(partido.visitante);
             }
         });
     }); 
 }
-console.log(programacionDiasPartido(partido.visitante));
 
 if(document.title == "Apuestas Deportivas") { // Si el título del documento es igual.        
     dibuixarTaulaPronostics(); // Llamamos a la función para dibujar la tabla de quinielas.
