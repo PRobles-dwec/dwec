@@ -179,10 +179,20 @@ aside { /* CSS para el menú lateral. */
 table { /* CSS para la tabla */
   margin: 5px;
 }
+ol {
+  text-align: center;
+}
 #resultados_tabla{ /* CSS para la tabla de resultados */
   width: 180px;
   display: none; 
   border-radius: 25px;
+}
+#explicacionPronosticos{ /* CSS para el contenedor de la tabla */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #747ab4;
+  border-radius: 20px;
 }
 #contenedor_tabla { /* CSS para el contenedor de la tabla */
   width: 100%;
