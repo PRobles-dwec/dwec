@@ -22,10 +22,37 @@ p, li { /* CSS para los párrafos y las listas de ítems */
   text-align: center;
 }
 table td{ /* CSS para las columnas de las tablas */  
-  background-color: #747ab4;
+  background-color: #125E8A; 
   padding: 10px;
-  font-size: 23px;
+  font-size: 20px;
   color: var(--primary);
+}
+select option {
+  background-color:#125E8A; 
+  color: white;
+}
+select {
+  font-size: 19px;
+}
+.acierto {
+  background-color: green;
+  width: 100px;
+  height: 100px;
+}
+.fallo {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+#explicacionPronosticos .fallo {
+  margin: 15px;
+}
+#explicacionPronosticos .acierto {
+  margin: 15px;
+}
+#colorespronosticos {
+  display: inline-block;
 }
 table { /* CSS para la tabla */
   background-color: var(--secondary);
@@ -194,6 +221,10 @@ ol {
   background-color: #747ab4;
   border-radius: 20px;
 }
+#aciertos span {
+  margin: 5px 0;
+  color: #000000;
+}
 #contenedor_tabla { /* CSS para el contenedor de la tabla */
   width: 100%;
   display: flex;
@@ -211,6 +242,13 @@ aside ul li a { /* CSS para la lista desordenada de los enlaces de la lista de �
   color: var(--primary);
   text-decoration: none;    
 } 
+#aciertos {
+  background-color: #125E8A;  
+  border-radius: 20px;
+  justify-content: center;
+  text-align: center;
+  font-size: 23px;
+}
 aside li a { /* CSS para los enlaces de la lista de ítems de la barra lateral */
   padding-bottom: 10px; 
   color: white;

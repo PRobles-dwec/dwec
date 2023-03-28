@@ -31,18 +31,20 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
         console.log(numeroPartidosPorDia + " partidos por día.");
         console.log(numeroDiasPartido + " días de partido. ");        
         
-        const nombresEquipo = this.primeraMasc.length;
+        const nombresEquipo = this.segonaFem.length;
                 
-        const nombresEquiposLocales = this.primeraMasc.length - 1;
-        const nombresEquiposVisitantes = this.primeraMasc.length - 1;
+        const nombresEquiposLocales = this.segonaFem.length - 1;
+        const nombresEquiposVisitantes = this.segonaFem.length - 1;
         
-        let indiceEquipo = this.primeraMasc.length -1;        
+        let indiceEquipo = this.primeraMasc.length -1;
 
             for(let i = 0; i < numeroDiasPartido; i++) { // Recorremos hasta que llegue a 10 jornadas masculinas.                   
                 var arrayJornades = []; // Aquí se guardarán las 14 jornadas.
                 for(let j = 0; j < numeroPartidosPorDia; j++) {
                     var aleatorioLocalMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo local masculino, que será aleatorio.
-                    var aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo visitante masculino, que será aleatorio.                    
+                    var aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo visitante masculino, que será aleatorio.
+
+                    var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.            
                 
                     let partidoMasculino = {local: aleatorioLocalMasculino, visitante: aleatorioVisitanteMasculino};                            
 
@@ -50,8 +52,8 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 }                                                                                                  
             }  
             localStorage.setItem("jornadasMasculinas", JSON.stringify(arrayJornades)); // Guardamos las variables en el LocalStorage.      
-            arrayJornades.forEach((partido,index) => {
-                var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.                                                        
+            arrayJornades.forEach((partido,index) => {                                        
+                jornadesMasc.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Añadimos la cadena y la imprimimos en el elemento dónde queremos imprimirlo. 
                 if(index === 0) {
                     partido.local = nombresEquipo[nombresEquiposLocales];
                     partido.local = nombresEquipo[indiceEquipo];
@@ -61,9 +63,9 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                     partido.visitante = nombresEquipo[nombresEquiposVisitantes];
                     partido.visitante = nombresEquipo[indiceEquipo];
                     indiceEquipo--;
-                }    
-                jornadesMasc.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Añadimos la cadena y la imprimimos en el elemento dónde queremos imprimirlo.                                                              
+                }                                                                 
             });      
+
         } else {
                 jornadesFem.style.display= "block";
                 jornadesFem.innerHTML = "<tr>" + "<th>" + "Local" + "</th>" + "<th>" + "  " + "</th>" + "<th>" + "Visitante" + "</th>" + "<th>" + "Hora" + "</th>" + "<th>" + "Día" + "</th>" + "</tr>";    
@@ -76,15 +78,15 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 const nombresEquiposLocales = this.segonaFem.length - 1;
                 const nombresEquiposVisitantes = this.segonaFem.length - 1;
                 
-                const jornadasFemApuestas = []; // Array dónde guardaremos 4 jornadas aleatorias femeninas, para luego imprimirlas en las apuestas.
-
-                let indiceEquipo = this.segonaFem.length -1 -1;                
-                
+                let indiceEquipo = this.segonaFem.length -1 -1;
+                                                
                 for(let i = 0; i < numeroDiasPartido; i++) {
                     var arrayJornades = [];
                     for(let j = 0; j < numeroPartidosPorDia; j++) {
                         var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo local femenino, que será aleatorio.
-                        var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo visitante femenino, que será aleatorio.                                                      
+                        var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo visitante femenino, que será aleatorio.  
+                            
+                        var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.
                             
                         let partidoFemenino = {local: aleatorioLocalFemenino, visitante: aleatorioVisitanteFemenino};   
                         arrayJornades.push(partidoFemenino); // Añadimos ambos equipos al array en dónde almacenamos las jornadas.                                                    
@@ -92,10 +94,9 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 }                
                 
                 localStorage.setItem("jornadasFemeninas", JSON.stringify(arrayJornades)); // Guardamos las variables en el LocalStorage.
-               
-                arrayJornades.forEach((partido,index) => {                     
-                    var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.                                      
-                    
+                                
+                arrayJornades.forEach((partido,index) => {                                        
+                    jornadesFem.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Añadimos la cadena y la imprimimos en el elemento dónde queremos imprimirlo. 
                     if(index === 0) {
                         partido.local = nombresEquipo[nombresEquiposLocales];
                         partido.local = nombresEquipo[indiceEquipo];
@@ -105,17 +106,8 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                         partido.visitante = nombresEquipo[nombresEquiposVisitantes];
                         partido.visitante = nombresEquipo[indiceEquipo];
                         indiceEquipo--;
-                    }        
-                    jornadesFem.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Añadimos la cadena y la imprimimos en el elemento dónde queremos imprimirlo.                                                          
-                });  
-                
-                for(let i = 0; i < arrayJornades.length; i++) {
-                    // En este bucle tiene que ir parte del código para poder recoger las jornadas femeninas aleatorias.
-                }
-                for(let i = 0; i < 4; i++) {
-                    // En este bucle vamos a elegir 4 jornadas aleatorias.
-                }
-                // localStorage.setItem("jornadasApuestasFemeninas", JSON.stringify(jornadasFemApuestas));
+                    }                                                                 
+                });                                                                                                                                 
             }                                
         console.log(arrayJornades);     
     }
@@ -187,14 +179,10 @@ function escriureResultats() { // Función para escribir los resultados
 }
 
 function comprobarQuiniela() {
-    var div = document.getElementById("contenedor_tabla");   
-    var tabla2 = document.createElement("table");
-    tabla2.id = "resultados_tabla";
-    var tblBody = document.createElement("tbody"); 
+    const resultados_tabla = document.getElementById("resultados_tabla"); // Recogemos el elemento en dónde imprimiremos la tabla.
+    resultados_tabla.style.display = "block"; // Decimos que los resultados de la tabla los muestre.
 
-    tabla2.style.display = "block"; // Decimos que los resultados de la tabla los muestre.
-
-    tabla2.innerHTML =  "<th>" + "Resultados" + "</th>"; // Creamos la cabecera de la tabla.
+    resultados_tabla.innerHTML =  "<th>" + "Resultados" + "</th>"; // Creamos la cabecera de la tabla.
 
     var resultadosAuxMasc = JSON.parse(localStorage.getItem("resultadosMasculinos")); // Recogemos los resultados masculinos del LocalStorage.
     var resultadosAuxFem = JSON.parse(localStorage.getItem("resultadosFemeninos")); // Recogemos los resultados femeninos del LocalStorage.
@@ -209,62 +197,39 @@ function comprobarQuiniela() {
     if(resultadosAuxMasc == null || resultadosAuxFem == null) {
         alert("No están todos los resultados disponibles. Pruebe más tarde.");
         console.log("Faltan generar resultados.");
-        tabla2.style.display = "none";
+        resultados_tabla.style.display = "none";
         aciertos.style.display = "none"; // Decimos que los resultados de la tabla los muestre.
     }
-    // if(document.querySelector("option")) {
-    //     alert("Marca tus pronósticos");
-    //     tabla2.style.display = "none";
-    //     aciertos.style.display = "none";
-    // } 
-    else {
-        boton.style.display = "none";
+    /* if(document.querySelector("input[type='radio']")) {
+        alert("Marca tus pronósticos");
+        resultados_tabla.style.display = "none";
+        aciertos.style.display = "none";
+    } */else {
         var resultadosAux = resultadosAuxMasc.concat(resultadosAuxFem); // Creamos un nuevo array juntando los resultados.
         console.log(resultadosAux);
         aciertos.style.display = "block";
 
         let contadorAciertos = 0;
-        tabla2.innerHTML = "<th>" + "Resultados" + "</th>"; 
 
-        var miApuesta = document.getElementById("miApuesta");
-        var valor = miApuesta.value;
-        console.log(valor);
-
-        resultadosAux.forEach((element) => { // Recorremos el array de los resultados.
-            var fila = document.createElement("tr");
-
-            var celda = document.createElement("td");                      
-
-            if(element.local > element.visitante && valor === "1" ) { // Si el resultado local, es mayor que el resultado visitante.
-                var celdaTexto = document.createTextNode("1");                
+        resultadosAux.forEach((element, index) => { // Recorremos el array de los resultados.
+            if(element.local > element.visitante) { // Si el resultado local, es mayor que el resultado visitante.
+                resultados_tabla.innerHTML += "<tr>"+ "<td>" + "1" + "</td>" + "</tr>"; // Imprimimos que es 1, haciendo referencia a que el local es mayor que el visitante.        
                 contadorAciertos++;
-                celda.style.backgroundColor = "green";
-                celda.style.padding = "15px";
-                console.log("Has acertado");
-            } 
-            if(element.local == element.visitante /*&& document.getElementById("miApuesta").selectedIndex == "X" */) { // Si el resultado local, es igual que el resultado visitante.
-                var celdaTexto = document.createTextNode("X");
+                //resultados_tabla.classList.add("acierto");
+            }
+            if(element.local == element.visitante) { // Si el resultado local, es igual que el resultado visitante.
+                resultados_tabla.innerHTML += "<tr>"+ "<td>" + "X" + "</td>" + "</tr>"; // Imprimimos que es X, haciendo referencia a que el local es igual al visitante.             
                 contadorAciertos++;
-                celda.style.backgroundColor = "green";
-                celda.style.padding = "15px";
-                console.log("Has acertado");
-            } 
-            if(element.local < element.visitante /* && document.getElementById("miApuesta").selectedIndex == "2" */) { // Si el resultado local, es menor que el resultado visitante.
-                var celdaTexto = document.createTextNode("2");
+                //resultados_tabla.classList.add("acierto");
+            }
+            if(element.local < element.visitante) { // Si el resultado local, es menor que el resultado visitante.
+                resultados_tabla.innerHTML += "<tr>"+ "<td>" + "2" + "</td>" + "</tr>"; // Imprimimos que es 2, haciendo referencia a que el local es menor que el visitante.          
                 contadorAciertos++;
-                celda.style.backgroundColor = "green";
-                celda.style.padding = "15px";
-                console.log("Has acertado");
+                //resultados_tabla.classList.add("acierto");
             } else {
-                celda.style.backgroundColor = "red";
-                celda.style.padding = "15px";
-                console.log("Has fallado");
+                resultados_tabla.classList.add("error");
             } 
-            celda.appendChild(celdaTexto);
-            fila.appendChild(celda);
-            tblBody.appendChild(fila);
-            tabla2.appendChild(tblBody);
-            div.appendChild(tabla2);
+           
         });
         contador.innerText = contadorAciertos;
     }
@@ -292,22 +257,19 @@ function dibuixarTaulaPronostics() {
     var jornadasAuxMasc = JSON.parse(localStorage.getItem("jornadasMasculinas")); // Recogemos los equipos masculinos del LocalStorage.
     var jornadasAuxFem = JSON.parse(localStorage.getItem("jornadasFemeninas")); // Recogemos los equipos femeninos del LocalStorage.        
 
-    tabla.innerHTML = "<th>" + "Jornadas" + "</th>" +"<th>" + "Partidos" + "</th>" + "<th>" + "Apuesta" +"</th>";
+    tabla.innerHTML = "<th>" + "Jornadas" + "</th>" +"<th>" + "Partidos" + "</th>" + "<th>" + "1" + "</th>" + "<th>" + "X" + "</th>" + "<th>" + "2" + "</th>";
     if(jornadasAuxMasc == null || jornadasAuxFem == null) {
         alert("Jornadas no disponibles. Pruebe más tarde.");
         console.log("Faltan generar jornadas.");
         tabla.style.display = "none";
         aciertos.style.display = "none";
-        boton.style.display = "none"; // Decimos que los resultados de la tabla los muestre.
+        resultados_tabla.style.display = "none"; // Decimos que los resultados de la tabla los muestre.
     } else {
+        // Creando las celdas 
         var jornadasAux = jornadasAuxMasc.concat(jornadasAuxFem); // Juntamos ambos arrays, para hacer uno nuevo.
-        
-        //var jornadasAux = jornadasAuxMasc.concat(jornadasFemApuestas); // Juntamos ambos arrays, para hacer uno nuevo.
-
         jornadasAux.forEach((element, index) => { // Recorremos el nuevo array de jornadas.
             var fila = document.createElement("tr");
             
-            // Creando las celdas 
             var celda1 = document.createElement("td");
             var celdaTexto1 = document.createTextNode(index+1);
             celda1.appendChild(celdaTexto1);
@@ -318,39 +280,44 @@ function dibuixarTaulaPronostics() {
                                  
             fila.appendChild(celda1);
             fila.appendChild(celda2);
-                       
-            var celdaInputs1 = document.createElement("td");
+           
+            for(let i = 0; i < 3; i++) {
+                var celdaInputs1 = document.createElement("td");
 
-            var celdaTextoInputs1 = document.createElement("select");
-            
-            celdaTextoInputs1.id = "miApuesta";
+                var celdaTextoInputs1 = document.createElement("input");
+                celdaTextoInputs1.type = "radio";
+                celdaTextoInputs1.required = "true";
+                celdaTextoInputs1.name = "pronosticos";
 
-            var ganaLocal = document.createElement("option");
-            ganaLocal.setAttribute("value", "1");
-            var ganaLocalTexto = document.createTextNode("Gana el equipo local.");            
-            ganaLocal.appendChild(ganaLocalTexto);
-            
-            var empate = document.createElement("option");
-            empate.setAttribute("value", "X");
-            var empateTexto = document.createTextNode("Empate entre ambos equipos.");            
-            empate.appendChild(empateTexto);
+                var celdaInputsX = document.createElement("td");
 
-            var ganaVisitante = document.createElement("option");
-            ganaVisitante.setAttribute("value", "2");
-            var ganaVisitanteTexto = document.createTextNode("Gana el equipo visitante.");            
-            ganaVisitante.appendChild(ganaVisitanteTexto);
+                var celdaTextoInputsX = document.createElement("input");
+                celdaTextoInputsX.type = "radio";
+                celdaTextoInputsX.required = "true";
+                celdaTextoInputsX.name = "pronosticos";
 
-            celdaInputs1.appendChild(celdaTextoInputs1);                
-            celdaTextoInputs1.appendChild(ganaLocal);
-            celdaTextoInputs1.appendChild(empate);
-            celdaTextoInputs1.appendChild(ganaVisitante);
+                var celdaInputs2 = document.createElement("td");
+
+                var celdaTextoInputs2 = document.createElement("input");
+                celdaTextoInputs2.type = "radio";
+                celdaTextoInputs2.required = "true";
+                celdaTextoInputs2.name = "pronosticos";
+               
+                celdaInputs1.appendChild(celdaTextoInputs1);
+                celdaInputsX.appendChild(celdaTextoInputsX);
+                celdaInputs2.appendChild(celdaTextoInputs2);
+                
+            }
 
             fila.appendChild(celdaInputs1);
+            fila.appendChild(celdaInputsX);
+            fila.appendChild(celdaInputs2);
             
             tblBody.appendChild(fila);
             tabla.appendChild(tblBody);
 
-            div.prepend(tabla);            
+            div.prepend(tabla);
+            
         }); 
         const jornadesAux = { // Creamos un objeto para guardar los resultados.
             jornadasAux: jornadasAux,
@@ -361,6 +328,8 @@ function dibuixarTaulaPronostics() {
             console.log(jornadesAux); 
         }                
     } 
+
+
 }
 
 function programacionDiasPartido() {    
