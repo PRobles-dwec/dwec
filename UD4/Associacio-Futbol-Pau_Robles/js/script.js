@@ -211,13 +211,7 @@ function comprobarQuiniela() {
         console.log("Faltan generar resultados.");
         tabla2.style.display = "none";
         aciertos.style.display = "none"; // Decimos que los resultados de la tabla los muestre.
-    }
-    // if(document.querySelector("option")) {
-    //     alert("Marca tus pronósticos");
-    //     tabla2.style.display = "none";
-    //     aciertos.style.display = "none";
-    // } 
-    else {
+    } else {
         boton.style.display = "none";
         var resultadosAux = resultadosAuxMasc.concat(resultadosAuxFem); // Creamos un nuevo array juntando los resultados.
         console.log(resultadosAux);
@@ -226,30 +220,38 @@ function comprobarQuiniela() {
         let contadorAciertos = 0;
         tabla2.innerHTML = "<th>" + "Resultados" + "</th>"; 
 
-        var miApuesta = document.getElementById("miApuesta");
-        var valor = miApuesta.value;
-        console.log(valor);
+        var miApuesta = document.querySelectorAll("select");
+        for(var i = 0; i < miApuesta.length; i++) {
+            var option = miApuesta[i];
+            console.log(option.value);
+        }    
 
         resultadosAux.forEach((element) => { // Recorremos el array de los resultados.
             var fila = document.createElement("tr");
 
             var celda = document.createElement("td");                      
-
-            if(element.local > element.visitante && valor === "1" ) { // Si el resultado local, es mayor que el resultado visitante.
+            
+            if(element.local > element.visitante /*&& valor === "1" */ ) { // Si el resultado local, es mayor que el resultado visitante.
                 var celdaTexto = document.createTextNode("1");                
                 contadorAciertos++;
                 celda.style.backgroundColor = "green";
                 celda.style.padding = "15px";
                 console.log("Has acertado");
+            } else {
+                celda.style.backgroundColor = "red";
+                celda.style.padding = "15px";
             } 
-            if(element.local == element.visitante /*&& document.getElementById("miApuesta").selectedIndex == "X" */) { // Si el resultado local, es igual que el resultado visitante.
+            if(element.local == element.visitante /* && valor === "X" */) { // Si el resultado local, es igual que el resultado visitante.
                 var celdaTexto = document.createTextNode("X");
                 contadorAciertos++;
                 celda.style.backgroundColor = "green";
                 celda.style.padding = "15px";
                 console.log("Has acertado");
+            } else {
+                celda.style.backgroundColor = "red";
+                celda.style.padding = "15px";
             } 
-            if(element.local < element.visitante /* && document.getElementById("miApuesta").selectedIndex == "2" */) { // Si el resultado local, es menor que el resultado visitante.
+            if(element.local < element.visitante /* && valor === "2" */) { // Si el resultado local, es menor que el resultado visitante.
                 var celdaTexto = document.createTextNode("2");
                 contadorAciertos++;
                 celda.style.backgroundColor = "green";
@@ -258,7 +260,6 @@ function comprobarQuiniela() {
             } else {
                 celda.style.backgroundColor = "red";
                 celda.style.padding = "15px";
-                console.log("Has fallado");
             } 
             celda.appendChild(celdaTexto);
             fila.appendChild(celda);
