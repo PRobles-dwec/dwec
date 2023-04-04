@@ -28,10 +28,25 @@
         <li><a href="contacte.html"><span class="material-symbols-outlined"> contact_page </span> Contacto </a></li>
       </ul>
     </nav>
-
+    <div id="wg-api-football-games"
+        data-host="v3.football.api-sports.io"
+        data-key="9c4059ca2ce40d598ec7e43ca7aaa787"
+        data-date=""
+        data-league="142"
+        data-season="2022"
+        data-theme="dark"
+        data-refresh="15"
+        data-show-toolbar="true"
+        data-show-errors="false"
+        data-show-logos="false"
+        data-modal-game="true"
+        data-modal-standings="true"
+        data-modal-show-logos="true">
+      </div> 
      <!-- Este es el contenido principal de nuestra página -->
     <main>
-      <!-- Puede contener uno o más artículos -->             
+      <!-- Puede contener uno o más artículos -->    
+              
       <article>     
         <div id="boton"><button onclick="escriureJornades()"> <span>Generar Jornadas Femeninas</span> </button> </div>
         <h3>Jornadas Femeninas</h3>
@@ -61,5 +76,6 @@
       <img src="https://assets.laliga.com/assets/2021/09/14/small/b069a9674b70216854438375d354412f.png">  
     </footer>
     <script src="./js/script.js"></script>
+    <script type="module" src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
   </body>
 </html>

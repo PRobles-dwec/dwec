@@ -4,7 +4,18 @@
   --fresh: #D80032;
   --letras: #292929;
 }
-
+#wg-api-football-games {
+  background-color: #125E8A; 
+}
+#wg-api-football-game {
+  background-color: #125E8A; 
+}
+#wg-api-football-standings {
+  background-color: #125E8A; 
+}
+.wg_no_data {
+  background-color: transparent; 
+}
 body { /* CSS para el cuerpo de la página. */
   width: 100%;
   margin: 0 auto;

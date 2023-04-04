@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jornadas Masculinas</title>
+    <title>Clasificación Segunda División Femenina</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" type="image/x-icon" href="./img/laligaLogo.png">    
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <!-- Esta es nuestra cabecera principal que se utiliza en todas las páginas de nuestra página web -->
     <header>
-      <img src="./img/laliga.png">
       <div style="text-align: center;">
         <h1>Asociación De Amigos del Fútbol</h1>
       </div>  
     </header>
-  <!--Este será el menú de navegación, en el que podremos ir de una página a otra.-->  
+    
+    <!--Este será el menú de navegación, en el que podremos ir de una página a otra.-->
     <nav>
       <ul>
         <li><a href="index.html"><span class="material-symbols-outlined">
@@ -28,40 +28,25 @@
           </span>Quiniela</a></li>       
         <li><a href="contacte.html"><span class="material-symbols-outlined"> contact_page </span> Contacto </a></li>
       </ul>
-    </nav>
-
-    <!-- Este es el contenido principal de nuestra página -->
-    <main>
-      <!-- Puede contener uno o más artículos -->
-      <article> 
-        <div id="wg-api-football-games"
+    </nav>   
+    <!--Este será el contenido principal.-->
+     
+      <h1>Clasificación Femenina</h1>          
+      <!--Aquí irá el contenido que estará dentro del contenido principal.-->
+      <div id="wg-api-football-standings"
         data-host="v3.football.api-sports.io"
         data-key="9c4059ca2ce40d598ec7e43ca7aaa787"
-        data-date=""
-        data-league="140"
+        data-league="142"
+        data-team=""
         data-season="2022"
         data-theme="dark"
-        data-refresh="15"
-        data-show-toolbar="true"
         data-show-errors="false"
-        data-show-logos="false"
-        data-modal-game="true"
-        data-modal-standings="true"
-        data-modal-show-logos="true">
-      </div> 
-        <div id="boton"> <button onclick="escriureJornades()"><span>Generar Jornadas Masculinas</span> </button> </div>
-             
-        <h3>Jornadas Masculinas</h3>
-        
-        <div id="contenedor_tabla">
-          <table id="jornadesMasc"> </table>
-        </div>
-       </article>   
-           
-    </main>   
-    <!-- En el footer, pondremos información que pueda ser relevante, como el autor de la página. -->
-    <footer>
-      <h1>Patrocinadores</h1>
+        data-show-logos="true"
+        class="wg_loader">
+      </div>       
+    <!--En el footer, pondremos información que pueda ser relevante, como el autor de la página.-->
+  <footer>
+    <h1>Patrocinadores</h1>
       <img src="https://assets.laliga.com/assets/2020/01/22/small/0e64cbdff9e741b1426f654cb4a9f084.png">
       <img src="https://assets.laliga.com/assets/2022/11/22/small/b5b4166fde892b89a1200abdd27f18bd.png">
       <img src="https://assets.laliga.com/assets/2022/09/01/small/a19224eb2a49978e401308c2f201e3dc.png">
@@ -78,8 +63,8 @@
       <img src="https://assets.laliga.com/assets/2020/01/22/small/653659e7d4676cac0f25a513522558bb.png">
       <img src="https://assets.laliga.com/assets/2020/01/22/small/f9a28530b5c6e217e7ca4c360e430bc0.jpeg">
       <img src="https://assets.laliga.com/assets/2021/09/14/small/b069a9674b70216854438375d354412f.png">  
-    </footer>
-    <script src="./js/script.js"></script>
-    <script type="module" src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
-  </body>
+  </footer>
+  <script src="./js/script.js"></script>
+  <script type="module" src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
+</body>
 </html>
