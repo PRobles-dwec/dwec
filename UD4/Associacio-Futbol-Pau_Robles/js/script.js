@@ -19,11 +19,13 @@ console.log(equips);
 const equipsMasculins = { // Creamos un objeto para guardar los arrays de los equipos.
     primeraMasc: this.primeraMasc,
 };
+console.log(equipsMasculins);
 console.log(Object.values(equipsMasculins));
 
 const equipsFemenins = { // Creamos un objeto para guardar los arrays de los equipos.
     segonaFem: this.segonaFem,
 };
+console.log(equipsFemenins);
 console.log(Object.values(equipsFemenins));
 
 const resultatsMasc = document.getElementById("resultatsMasc"); // Recogemos el elemento donde imprimiremos los resultados masculinos.
@@ -56,22 +58,12 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 }                                                                                                  
             }  
             localStorage.setItem("jornadasMasculinas", JSON.stringify(arrayJornades)); // Guardamos las variables en el LocalStorage.      
-            arrayJornades.forEach((partido,index) => { // Recorremos el array de las jornadas.
+            arrayJornades.forEach((partido) => { // Recorremos el array de las jornadas.
                 var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.                                                        
 
-                jornadesMasc.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Imprimimos los elementos.                                                              
-                
-                /* if(index === 0) { // Si el índice es 0.
-                    partido.local = nombresEquipo[nombresEquiposLocales]; // Le decimos que los locales los guarde.
-                    partido.local = nombresEquipo[indiceEquipo]; // Le decimos que los locales los recorra con el índice, o sea, de 1 en 1.
-                    indiceEquipo++; // Incrementamos el índice del equipo.
-                }   
-                if(index === 0) { // Si el índice es 0.
-                    partido.visitante = nombresEquipo[nombresEquiposVisitantes]; // Le decimos que los visitantes los guarde.
-                    partido.visitante = nombresEquipo[indiceEquipo]; // Le decimos que los visitantes los recorra con el índice, o sea, de 1 en 1.
-                    indiceEquipo--; // Decrementamos el índice del equipo.
-                }        */             
-            }); 
+                jornadesMasc.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Imprimimos los elementos.                                                                                                     
+            });
+
             const jornadesMasculines = { // Creamos un objeto para guardar los resultados.
                 arrayJornades: arrayJornades,
             };
@@ -83,7 +75,7 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 const numeroDiasPartido = this.segonaFem.length - 1; // Número de partidos.
                 const numeroPartidosPorDia = this.segonaFem.length/2; // Número de partidos por día.
                                 
-                const jornadasFemApuestas = []; // Array dónde guardaremos 4 jornadas aleatorias femeninas, para luego imprimirlas en las apuestas.
+                var jornadasFemApuestas = []; // Array dónde guardaremos 4 jornadas aleatorias femeninas, para luego imprimirlas en las apuestas.
                 var cantidadJornadasFemeninasApuestas = 4;         
                 
                 for(let i = 0; i < numeroDiasPartido; i++) { // Recorremos el número de partidos
@@ -93,7 +85,7 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                         var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo visitante femenino, que será aleatorio.                                                      
                         
                         if(aleatorioLocalFemenino === aleatorioVisitanteFemenino) { // Si el equipo local y visitante son iguales.
-                            var aleatorioLocalFemenino = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo local masculino, que será aleatorio.
+                            var aleatorioLocalFemenino = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo local masculino, que será aleatorio.
                         }
 
                         let partidoFemenino = {local: aleatorioLocalFemenino, visitante: aleatorioVisitanteFemenino}; // Guardamos las variables aleatorias, para meterlas en el array.  
@@ -107,12 +99,10 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                     var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.                                      
                     jornadesFem.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Añadimos la cadena y la imprimimos en el elemento dónde queremos imprimirlo.                                                                                 
                 });  
-                
+
                 while(jornadasFemApuestas.length < cantidadJornadasFemeninasApuestas) { // Mientras el tamaño de las jornadas femeninas de apuestas sea menor que la cantidad de jornadas femeninas de las apuestas.                    
                     var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo local femenino, que será aleatorio.
                     var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo visitante femenino, que será aleatorio.                                                      
-
-                    var existe = false;
 
                     if(aleatorioLocalFemenino === aleatorioVisitanteFemenino) {
                         var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo local femenino, que será aleatorio.
@@ -123,23 +113,19 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                             break;
                         }                        
                     }
-                    
-                    if(!existe) {
-                        jornadasFemApuestas[jornadasFemApuestas.length] = aleatorioLocalFemenino;
-                        jornadasFemApuestas[jornadasFemApuestas.length] = aleatorioVisitanteFemenino;
-                    } 
-                    let partidoFemeninoApuesta = {localApuesta: aleatorioLocalFemenino, visitanteApuesta: aleatorioVisitanteFemenino};
+                                        
+                    let partidoFemeninoApuesta = {local: aleatorioLocalFemenino, visitante: aleatorioVisitanteFemenino};
                     jornadasFemApuestas.push(partidoFemeninoApuesta);                                                 
                 }                     
-                localStorage.setItem("jornadasApuestasFemeninas", JSON.stringify(jornadasFemApuestas));  
+                
+                localStorage.setItem("jornadasApuestasFemeninas", JSON.stringify(jornadasFemApuestas)); // Guardamos las jornadas femeninas de las apuestas en el LocalStorage.
 
                 const jornadesFemenines = { // Creamos un objeto para guardar los resultados.
                     arrayJornades: arrayJornades,
-                };
-                
-                console.log(Object.values(jornadesFemenines));     
+                };                
+            console.log(Object.values(jornadesFemenines));     
             console.log(jornadasFemApuestas);            
-    }
+        }
     console.log(arrayJornades); 
 }
 
@@ -161,8 +147,10 @@ function escriureResultats() { // Función para escribir los resultados.
         resultatsMasc.innerHTML = "<th>" + "Local" + "</th>" + "<th>" + "Resultado" + "</th>" + "<th>" + "Visitante" + "</th>"; // Creamos la cabecera de la tabla.
 
         var equipoMasculino = JSON.parse(localStorage.getItem("jornadasMasculinas")); // Recogemos las jornadas masculinas guardadas en el LocalStorage.
+
         if(equipoMasculino == null) { // Si no hay equipos masculinos.
-            alert("Faltan jornadas masculinas.");
+            alert("Faltan jornadas masculinas.");            
+
             resultatsMasc.style.display = "none"; // No mostramos dónde se imprimen los resultados masculinos.
         }else {
             equipoMasculino.forEach((element)=> { // Recorremos cada uno de los elementos que están en el array de equipos masculinos.
@@ -173,12 +161,14 @@ function escriureResultats() { // Función para escribir los resultados.
                                 
                 resultatsMasc.innerHTML += "<tr>" + "<td>" + element.local + "</td>" + "<td>" + resultadoLocalMasculino + " - " + resultadoVisitanteMasculino + "</td>" + "<td>" + element.visitante + "</td>" + "</tr>"; // Imprimimos las variables aleatorias. También imprimimos los equipos.                                       
             });        
-            localStorage.setItem("resultadosMasculinos", JSON.stringify(arrayResultats)); // Guardamos las variables en el LocalStorage.       
+            localStorage.setItem("resultadosMasculinos", JSON.stringify(arrayResultats)); // Guardamos las variables en el LocalStorage.  
+            
+            const resultatsMasculins = { // Creamos un objeto para guardar los resultados.
+                arrayResultats: arrayResultats,
+            };
+            console.log(Object.values(resultatsMasculins)); 
         }
-        const resultatsMasculins = { // Creamos un objeto para guardar los resultados.
-            arrayResultats: arrayResultats,
-        };
-        console.log(Object.values(resultatsMasculins));            
+                   
     }else {                                              
         resultatsFem.style.display = "block"; // Mostramos dónde se imprimen los resultados femeninos. 
         resultatsFem.innerHTML = "<th>" + "Local" + "</th>" + "<th>" + "Resultado" + "</th>" + "<th>" + "Visitante" + "</th>";  // Creamos la cabecera de la tabla.                     
@@ -231,33 +221,33 @@ function comprobarQuiniela() { // Función para comprobar las apuestas.
 
     var contador = document.getElementById("contador"); // Recogemos el lugar dónde imprimiremos el contador.
     if(resultadosAuxMasc == null || resultadosAuxFem == null) { // Si no hay resultados masculinos o femeninos.
+
         alert("No están todos los resultados disponibles. Pruebe más tarde.");
         console.log("Faltan generar resultados.");
         tabla2.style.display = "none"; // No mostramos la tabla de resultados.
         aciertos.style.display = "none"; // Decimos que los resultados de la tabla los muestre.
-    } else { // Si hay resultados masculinos o femeninos.
+
+    } else {
         boton.style.display = "none"; // Mostramos el botón.
         var resultadosAux = resultadosAuxMasc.concat(resultadosAuxFem); // Creamos un nuevo array juntando los resultados.
         console.log(resultadosAux);
         aciertos.style.display = "block"; // Mostramos el lugar dónde imprime los aciertos.
 
         let contadorAciertos = 0; // Variable que cuenta los aciertos.
-        tabla2.innerHTML = "<th>" + "Resultados" + "</th>"; // Creamos la cabecera para la tabla de resultados.
+        tabla2.innerHTML = "<th>" + "Resultados" + "</th>"; // Creamos la cabecera para la tabla de resultados.    
 
-        var miApuesta = document.querySelectorAll("select"); // Recogemos los selects.
-        for(var i = 0; i < miApuesta.length; i++) { // Recorremos los selects.
-            var option = miApuesta[i]; // Recogemos las respuestas de los selects.
-            console.log(option.value);
-        }    
-
-        resultadosAux.forEach((element) => { // Recorremos el array de los resultados.
+        resultadosAux.forEach((element,index) => { // Recorremos el array de los resultados.
             var fila = document.createElement("tr"); // Creamos las filas.
             
-            var celda = document.createElement("td"); // Creamos las celdas.                      
+            var celda = document.createElement("td"); // Creamos las celdas.  
+
             var celdaTexto1 = document.createTextNode("1"); // Creamos el texto para la celda, que escribirá 1.            
             var celdaTextoX = document.createTextNode("X"); // Creamos el texto para la celda, que escribirá X.            
             var celdaTexto2 = document.createTextNode("2"); // Creamos el texto para la celda, que escribirá 2.            
 
+            var miApuesta = document.querySelectorAll("select"); // Recogemos los selects.
+            var option = miApuesta[index];
+            
             if(element.local > element.visitante & option.value === "1") { // Si el resultado local, es mayor que el resultado visitante.               
                 contadorAciertos++; // Incrementamos el contador de aciertos.
                 celda.appendChild(celdaTexto1);                
@@ -430,7 +420,6 @@ if(document.title == "Apuestas Deportivas") { // Si el título del documento es 
     dibuixarTaulaPronostics(); // Llamamos a la función para dibujar la tabla de quinielas.
 }
 
-
 fetch('https://v3.football.api-sports.io/teams?league=140&season=2022', {
     "method": "GET",
     "headers": {
@@ -439,7 +428,7 @@ fetch('https://v3.football.api-sports.io/teams?league=140&season=2022', {
 	}
 })  
 .then(response => {
-    console.log(response.json());
+    console.log(response.json()); // Recogiendo los equipos masculinos.
 })
 .catch(err => {
     console.log(err);
@@ -453,7 +442,7 @@ fetch('https://v3.football.api-sports.io/teams?league=142&season=2022', {
 	}
 })  
 .then(response => {
-    console.log(response.json());
+    console.log(response.json()); // Recogiendo los equipos femeninos.
 })
 .catch(err => {
     console.log(err);
@@ -467,7 +456,7 @@ fetch("https://v3.football.api-sports.io/standings?league=140&season=2022", {
 	}
 })
 .then(response => {
-	console.log(response.json());
+	console.log(response.json()); // Recogiendo las jornadas masculinas.
 })
 .catch(err => {
 	console.log(err);
@@ -481,7 +470,7 @@ fetch("https://v3.football.api-sports.io/standings?league=142&season=2022", {
 	}
 })
 .then(response => {
-	console.log(response.json());
+    console.log(response.json()); // Recogiendo las jornadas femeninas.
 })
 .catch(err => {
 	console.log(err);
