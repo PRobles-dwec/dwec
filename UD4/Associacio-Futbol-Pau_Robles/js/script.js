@@ -48,7 +48,7 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 for(let j = 0; j < numeroPartidosPorDia; j++) { // Recorremos los partidos que hay por día.
                     var aleatorioLocalMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo local masculino, que será aleatorio.
                     var aleatorioVisitanteMasculino  = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo visitante masculino, que será aleatorio.                    
-                
+                    
                     if(aleatorioLocalMasculino === aleatorioVisitanteMasculino) { // Si el equipo local y visitante son iguales.
                         var aleatorioLocalMasculino = primeraMasc[Math.floor(Math.random() * primeraMasc.length)]; // Variable para guardar el equipo local masculino, que será aleatorio.
                     }
@@ -58,16 +58,19 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 }                                                                                                  
             }  
             localStorage.setItem("jornadasMasculinas", JSON.stringify(arrayJornades)); // Guardamos las variables en el LocalStorage.      
+                        
             arrayJornades.forEach((partido) => { // Recorremos el array de las jornadas.
                 var diasPartidosAleatorio = diasPartidos[Math.floor(Math.random() * diasPartidos.length)]; // Variable para guardar los días de los partidos, que será aleatorio.                                                        
-
+                                
                 jornadesMasc.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Imprimimos los elementos.                                                                                                     
             });
 
             const jornadesMasculines = { // Creamos un objeto para guardar los resultados.
                 arrayJornades: arrayJornades,
             };
-            console.log(Object.values(jornadesMasculines));       
+                        
+            console.log(Object.values(jornadesMasculines)); 
+                        
         } else {
                 jornadesFem.style.display= "block"; // Mostramos el lugar dónde imprimiremos las jornadas femeninas.
                 jornadesFem.innerHTML = "<tr>" + "<th>" + "Local" + "</th>" + "<th>" + "  " + "</th>" + "<th>" + "Visitante" + "</th>" + "<th>" + "Hora" + "</th>" + "<th>" + "Día" + "</th>" + "</tr>"; // Imprimimos los elementos.       
@@ -75,8 +78,7 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                 const numeroDiasPartido = this.segonaFem.length - 1; // Número de partidos.
                 const numeroPartidosPorDia = this.segonaFem.length/2; // Número de partidos por día.
                                 
-                var jornadasFemApuestas = []; // Array dónde guardaremos 4 jornadas aleatorias femeninas, para luego imprimirlas en las apuestas.
-                var cantidadJornadasFemeninasApuestas = 4;         
+                var jornadasFemApuestas = []; // Array dónde guardaremos 4 jornadas aleatorias femeninas, para luego imprimirlas en las apuestas.        
                 
                 for(let i = 0; i < numeroDiasPartido; i++) { // Recorremos el número de partidos
                     var arrayJornades = []; // Aquí guardaremos el array de jornadas.
@@ -100,22 +102,17 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
                     jornadesFem.innerHTML += "<tr>" + "<td>" + partido.local + "</td>" + "<td>" + " - " + "</td>" + "<td>" + partido.visitante + "</td>" + "<td>" + getRandomHours() + "</td>" + "<td>" + diasPartidosAleatorio + "</td>"+ "</tr>"; // Añadimos la cadena y la imprimimos en el elemento dónde queremos imprimirlo.                                                                                 
                 });  
 
-                while(jornadasFemApuestas.length < cantidadJornadasFemeninasApuestas) { // Mientras el tamaño de las jornadas femeninas de apuestas sea menor que la cantidad de jornadas femeninas de las apuestas.                    
-                    var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo local femenino, que será aleatorio.
-                    var aleatorioVisitanteFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo visitante femenino, que será aleatorio.                                                      
+                while(jornadasFemApuestas.length < 4) { // Mientras el tamaño de las jornadas femeninas de apuestas sea menor que la cantidad de jornadas femeninas de las apuestas.                    
+                    const randomIndex = elegirAleatorio(); // Variable que llama a una función para elegir de forma aleatoria.
+                    if(!norepetido(arrayJornades[randomIndex], jornadasFemApuestas)) { // Si está repetido.
+                        jornadasFemApuestas.push(arrayJornades[randomIndex]); // Pondremos el índice aleatorio, dentro del array de las jornadas femeninas de las apuestas.
+                    }
 
-                    if(aleatorioLocalFemenino === aleatorioVisitanteFemenino) {
+                    if(aleatorioLocalFemenino === aleatorioVisitanteFemenino) { // Si los equipos son los mismos.
                         var aleatorioLocalFemenino  = segonaFem[Math.floor(Math.random() * segonaFem.length)]; // Variable para guardar el equipo local femenino, que será aleatorio.
-                    }
-                    for(var i = 0; i < jornadasFemApuestas.length; i++) {
-                        if(jornadasFemApuestas[i] == aleatorioLocalFemenino || jornadasFemApuestas[i] == aleatorioVisitanteFemenino) {
-                            existe = true;
-                            break;
-                        }                        
-                    }
-                                        
-                    let partidoFemeninoApuesta = {local: aleatorioLocalFemenino, visitante: aleatorioVisitanteFemenino};
-                    jornadasFemApuestas.push(partidoFemeninoApuesta);                                                 
+                    }                                       
+                    let partidoFemeninoApuesta = {local: aleatorioLocalFemenino, visitante: aleatorioVisitanteFemenino}; // Metemos ambos equipos en una variable, para luego pasarlo al array.
+                    jornadasFemApuestas.push(partidoFemeninoApuesta); // Metemos la variable con ambos equipos en el array.                                                 
                 }                     
                 
                 localStorage.setItem("jornadasApuestasFemeninas", JSON.stringify(jornadasFemApuestas)); // Guardamos las jornadas femeninas de las apuestas en el LocalStorage.
@@ -127,6 +124,14 @@ function escriureJornades() {   // Función que escribe las jornadas masculinas
             console.log(jornadasFemApuestas);            
         }
     console.log(arrayJornades); 
+}
+
+function elegirAleatorio () { // Función para elegir valor aleatorio.
+    return Math.floor(Math.random() * (4)); // Sólo hasta 4.
+}
+
+function norepetido(actual, jornadasValidas) { // Función que devuelve las jornadas que no estén repetidas.
+    return jornadasValidas.includes(actual); // Devolverá las jornadas actuales que sean válidas, es decir, que ya existen.
 }
 
 function getRandom(min,max) { // Función para elegir un número aleatorio entre 2 números.
@@ -167,8 +172,7 @@ function escriureResultats() { // Función para escribir los resultados.
                 arrayResultats: arrayResultats,
             };
             console.log(Object.values(resultatsMasculins)); 
-        }
-                   
+        }                   
     }else {                                              
         resultatsFem.style.display = "block"; // Mostramos dónde se imprimen los resultados femeninos. 
         resultatsFem.innerHTML = "<th>" + "Local" + "</th>" + "<th>" + "Resultado" + "</th>" + "<th>" + "Visitante" + "</th>";  // Creamos la cabecera de la tabla.                     
@@ -185,8 +189,7 @@ function escriureResultats() { // Función para escribir los resultados.
                             
                 arrayResultats.push({local: resultadoLocalFemenino, visitante: resultadoVisitanteFemenino}); // Recogemos las jornadas femeninas guardadas en el LocalStorage.
 
-                resultatsFem.innerHTML += "<tr>" + "<td>" + element.local + "</td>" + "<td>" + resultadoLocalFemenino + " - " + resultadoVisitanteFemenino + "</td>" + "<td>" + element.visitante + "</td>" + "</tr>"; // Imprimimos las variables aleatorias. También imprimimos los equipos.
-                
+                resultatsFem.innerHTML += "<tr>" + "<td>" + element.local + "</td>" + "<td>" + resultadoLocalFemenino + " - " + resultadoVisitanteFemenino + "</td>" + "<td>" + element.visitante + "</td>" + "</tr>"; // Imprimimos las variables aleatorias. También imprimimos los equipos.                
             });                
             localStorage.setItem("resultadosFemeninos", JSON.stringify(arrayResultats)); // Guardamos las variables en el LocalStorage. 
         }      
@@ -211,7 +214,8 @@ function comprobarQuiniela() { // Función para comprobar las apuestas.
     tabla2.innerHTML =  "<th>" + "Resultados" + "</th>"; // Creamos la cabecera de la tabla.
 
     var resultadosAuxMasc = JSON.parse(localStorage.getItem("resultadosMasculinos")); // Recogemos los resultados masculinos del LocalStorage.
-    var resultadosAuxFem = JSON.parse(localStorage.getItem("resultadosFemeninos")); // Recogemos los resultados femeninos del LocalStorage.
+    var jornadasAuxFem = JSON.parse(localStorage.getItem("jornadasApuestasFemeninas")); // Recogemos los resultados femeninos del LocalStorage.
+    var resultadosAuxFem = JSON.parse(localStorage.getItem("resultadosFemeninos"));
 
     var explicacionPronosticos = document.getElementById("explicacionPronosticos"); // Recogemos el tutorial que explica cómo hacer apuestas.
     var boton = document.getElementById("boton"); // Recogemos el botón.
@@ -220,17 +224,15 @@ function comprobarQuiniela() { // Función para comprobar las apuestas.
     boton.style.display = "block"; // Mostramos el botón.
 
     var contador = document.getElementById("contador"); // Recogemos el lugar dónde imprimiremos el contador.
-    if(resultadosAuxMasc == null || resultadosAuxFem == null) { // Si no hay resultados masculinos o femeninos.
-
+    if(resultadosAuxMasc == null || resultadosAuxFem == null || jornadasAuxFem == null) { // Si no hay resultados masculinos o femeninos.
         alert("No están todos los resultados disponibles. Pruebe más tarde.");
         console.log("Faltan generar resultados.");
         tabla2.style.display = "none"; // No mostramos la tabla de resultados.
         aciertos.style.display = "none"; // Decimos que los resultados de la tabla los muestre.
 
     } else {
-        boton.style.display = "none"; // Mostramos el botón.
-        var resultadosAux = resultadosAuxMasc.concat(resultadosAuxFem); // Creamos un nuevo array juntando los resultados.
-        console.log(resultadosAux);
+        boton.style.display = "none"; // Ocultamos el botón.
+        var resultadosAux = resultadosAuxMasc.concat(jornadasAuxFem); // Creamos un nuevo array juntando los resultados.
         aciertos.style.display = "block"; // Mostramos el lugar dónde imprime los aciertos.
 
         let contadorAciertos = 0; // Variable que cuenta los aciertos.
@@ -248,67 +250,46 @@ function comprobarQuiniela() { // Función para comprobar las apuestas.
             var miApuesta = document.querySelectorAll("select"); // Recogemos los selects.
             var option = miApuesta[index];
             
-            if(element.local > element.visitante & option.value === "1") { // Si el resultado local, es mayor que el resultado visitante.               
+            if(element.local > element.visitante & option.value === "1") { // Si el resultado local, es mayor que el resultado visitante y el valor del option es 1.               
                 contadorAciertos++; // Incrementamos el contador de aciertos.
-                celda.appendChild(celdaTexto1);                
+                celda.appendChild(celdaTexto1); // Añadimos el texto de la primera celda a la celda.          
                 celda.style.padding = "15px"; // Le ponemos padding.
                 celda.style.backgroundColor = "green"; // Le ponemos color de fondo.
                 console.log("Has acertado");
             } 
 
-            if(element.local > element.visitante & option.value === "X") { // Si el resultado local, es mayor que el resultado visitante.               
-                celda.appendChild(celdaTexto1);                
+            if(element.local > element.visitante & option.value !== "1") { // Si el resultado local, es mayor que el resultado visitante y el valor del option es diferente a 1.               
+                celda.appendChild(celdaTexto1); // Añadimos el texto de la primera celda a la celda.                
                 celda.style.padding = "15px"; // Le ponemos padding.
                 celda.style.backgroundColor = "red"; // Le ponemos color de fondo.
                 console.log("Has fallado");
             } 
 
-            if(element.local > element.visitante & option.value === "2") { // Si el resultado local, es mayor que el resultado visitante.               
-                celda.appendChild(celdaTexto1);                
-                celda.style.padding = "15px"; // Le ponemos padding.
-                celda.style.backgroundColor = "red"; // Le ponemos color de fondo.
-                console.log("Has fallado");
-            } 
-
-            if(element.local === element.visitante & option.value === "X") { // Si el resultado local, es mayor que el resultado visitante. 
+            if(element.local === element.visitante & option.value === "X") { // Si el resultado local, es mayor que el resultado visitante y el valor del option es X. 
                 contadorAciertos++; // Incrementamos el contador de aciertos.                                             
-                celda.appendChild(celdaTextoX);
+                celda.appendChild(celdaTextoX);  // Añadimos el texto de la segunda celda a la celda. 
                 celda.style.padding = "15px"; // Le ponemos padding.
                 celda.style.backgroundColor = "green"; // Le ponemos color de fondo.
                 console.log("Has acertado");
             } 
 
-            if(element.visitante === element.local & option.value === "1") { // Si el resultado local, es mayor que el resultado visitante.                                        
-                celda.appendChild(celdaTextoX);
+            if(element.visitante === element.local & option.value !== "X") { // Si el resultado local, es mayor que el resultado visitante y el valor del option es diferente a X.                                        
+                celda.appendChild(celdaTextoX);  // Añadimos el texto de la segunda celda a la celda. 
                 celda.style.padding = "15px"; // Le ponemos padding.
                 celda.style.backgroundColor = "red"; // Le ponemos color de fondo.
                 console.log("Has fallado");
             }  
 
-            if(element.visitante === element.local & option.value === "2") { // Si el resultado local, es mayor que el resultado visitante.                                        
-                celda.appendChild(celdaTextoX);
-                celda.style.padding = "15px"; // Le ponemos padding.
-                celda.style.backgroundColor = "red"; // Le ponemos color de fondo.
-                console.log("Has fallado");
-            }  
-            
             if(element.visitante > element.local & option.value === "2") { // Si el resultado local, es mayor que el resultado visitante.   
                 contadorAciertos++; // Incrementamos el contador de aciertos.                                         
-                celda.appendChild(celdaTexto2);
+                celda.appendChild(celdaTexto2);  // Añadimos el texto de la tercera celda a la celda. 
                 celda.style.padding = "15px"; // Le ponemos padding.
                 celda.style.backgroundColor = "green"; // Le ponemos color de fondo.
                 console.log("Has acertado");
             }  
             
-            if(element.visitante > element.local & option.value === "1") { // Si el resultado local, es mayor que el resultado visitante.                                        
-                celda.appendChild(celdaTexto2);
-                celda.style.padding = "15px"; // Le ponemos padding.
-                celda.style.backgroundColor = "red"; // Le ponemos color de fondo.
-                console.log("Has fallado");
-            }  
-
-            if(element.visitante > element.local & option.value === "X") { // Si el resultado local, es mayor que el resultado visitante.                                        
-                celda.appendChild(celdaTexto2);
+            if(element.visitante > element.local & option.value !== "2") { // Si el resultado local, es mayor que el resultado visitante.                                        
+                celda.appendChild(celdaTexto2);  // Añadimos el texto de la tercera celda a la celda. 
                 celda.style.padding = "15px"; // Le ponemos padding.
                 celda.style.backgroundColor = "red"; // Le ponemos color de fondo.
                 console.log("Has fallado");
@@ -316,12 +297,19 @@ function comprobarQuiniela() { // Función para comprobar las apuestas.
                            
             celda.style.padding = "15px"; // Le ponemos padding.
 
-            fila.appendChild(celda); // Añadimos la celda a la fila.
+            fila.appendChild(celda); // Añadimos la celda a la fila, con todos los textos de las respectivas celdas.
             tblBody.appendChild(fila); // Añadimos la fila al cuerpo de la tabla.
             tabla2.appendChild(tblBody); // Añadimos el cuerpo de la tabla a la tabla.
             div.appendChild(tabla2); // Añadimos la tabla al div, dónde está el contenedor de la tabla.
         });
         contador.innerText = contadorAciertos; // Escribimos el contador de aciertos en el contador del HTML.
+        
+        if(contadorAciertos == 14) { // Si las acierta todas.
+            alert("Has acertado todos los resultados!");
+        }
+        if(contadorAciertos == 0) { // Si las falla todas.
+            alert("No has acertado ninguno de los resultados... Prueba en la siguiente quiniela.");
+        }
     }
             
     const resultatsAux = { // Guardamos los resultados en un objeto.
@@ -329,11 +317,8 @@ function comprobarQuiniela() { // Función para comprobar las apuestas.
     };
 
     if(resultatsAux === undefined) { // Si no hay resultados
-        console.log("Falta que generes resultados para que se guarden en el objeto de resultados.");
-        console.log(Object.values(resultatsAux));
-    } else {
-        console.log(Object.values(resultatsAux)); 
-    }     
+        console.log("Falta que generes resultados para que se guarden en el objeto de resultados.");        
+    }   
 }
 
 function dibuixarTaulaPronostics() { // Función para dibujar la tabla de apuestas.     
@@ -346,7 +331,7 @@ function dibuixarTaulaPronostics() { // Función para dibujar la tabla de apuest
     aciertos.style.display = "none"; // No lo mostramos todavía.
     
     var jornadasAuxMasc = JSON.parse(localStorage.getItem("jornadasMasculinas")); // Recogemos los equipos masculinos del LocalStorage.
-    var jornadasAuxFem = JSON.parse(localStorage.getItem("jornadasFemeninas")); // Recogemos los equipos femeninos del LocalStorage.        
+    var jornadasAuxFem = JSON.parse(localStorage.getItem("jornadasApuestasFemeninas")); // Recogemos los equipos femeninos del LocalStorage.        
 
     tabla.innerHTML = "<th>" + "Jornadas" + "</th>" +"<th>" + "Partidos" + "</th>" + "<th>" + "Apuesta" +"</th>"; // Creamos la cabecera de la tabla.
     if(jornadasAuxMasc == null || jornadasAuxFem == null) { // Si no hay jornadas masculinas o femeninas.
@@ -355,10 +340,8 @@ function dibuixarTaulaPronostics() { // Función para dibujar la tabla de apuest
         tabla.style.display = "none"; // Ocultamos la tabla.
         aciertos.style.display = "none"; // Ocultamos los aciertos.
         boton.style.display = "none"; // Ocultamos el botón.
-    } else {
+    } else {                
         var jornadasAux = jornadasAuxMasc.concat(jornadasAuxFem); // Juntamos ambos arrays, para hacer uno nuevo.
-        
-        //var jornadasAux = jornadasAuxMasc.concat(jornadasFemApuestas); // Juntamos ambos arrays, para hacer uno nuevo.
 
         jornadasAux.forEach((element, index) => { // Recorremos el nuevo array de jornadas.
             var fila = document.createElement("tr"); // Creamos filas.
@@ -410,8 +393,7 @@ function dibuixarTaulaPronostics() { // Función para dibujar la tabla de apuest
         };
         if(jornadesAux === undefined) { // Si las jornadas no están definidas.
             console.log("Falta que generes jornadas para guardarlas en el objeto dónde se guardan las jornadas.");        
-        } 
-        
+        }         
         console.log(Object.values(jornadesAux));                     
     } 
 }
@@ -420,7 +402,7 @@ if(document.title == "Apuestas Deportivas") { // Si el título del documento es 
     dibuixarTaulaPronostics(); // Llamamos a la función para dibujar la tabla de quinielas.
 }
 
-fetch('https://v3.football.api-sports.io/teams?league=140&season=2022', {
+fetch('https://v3.football.api-sports.io/teams?league=140&season=2022', { // Recogemos los equipos masculinos, de la temporada actual.
     "method": "GET",
     "headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -428,13 +410,13 @@ fetch('https://v3.football.api-sports.io/teams?league=140&season=2022', {
 	}
 })  
 .then(response => {
-    console.log(response.json()); // Recogiendo los equipos masculinos.
+    console.log(response.json()); // Mostramos los equipos masculinos.
 })
 .catch(err => {
     console.log(err);
 });
 
-fetch('https://v3.football.api-sports.io/teams?league=142&season=2022', {
+fetch('https://v3.football.api-sports.io/teams?league=142&season=2022', { // Recogemos los equipos femeninos, de la temporada actual.
     "method": "GET",
     "headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -442,13 +424,13 @@ fetch('https://v3.football.api-sports.io/teams?league=142&season=2022', {
 	}
 })  
 .then(response => {
-    console.log(response.json()); // Recogiendo los equipos femeninos.
+    console.log(response.json()); // Mostramos los equipos femeninos.
 })
 .catch(err => {
     console.log(err);
 });
 
-fetch("https://v3.football.api-sports.io/standings?league=140&season=2022", {
+fetch("https://v3.football.api-sports.io/standings?league=140&season=2022", { // Recogemos las jornadas masculinas, de la temporada actual.
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -456,13 +438,13 @@ fetch("https://v3.football.api-sports.io/standings?league=140&season=2022", {
 	}
 })
 .then(response => {
-	console.log(response.json()); // Recogiendo las jornadas masculinas.
+	console.log(response.json()); // Mostramos las jornadas masculinas.
 })
 .catch(err => {
 	console.log(err);
 });
 
-fetch("https://v3.football.api-sports.io/standings?league=142&season=2022", {
+fetch("https://v3.football.api-sports.io/standings?league=142&season=2022", { // Recogemos las jornadas femeninas, de la temporada actual.
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -470,8 +452,22 @@ fetch("https://v3.football.api-sports.io/standings?league=142&season=2022", {
 	}
 })
 .then(response => {
-    console.log(response.json()); // Recogiendo las jornadas femeninas.
+    console.log(response.json()); // Mostramos las jornadas femeninas.
 })
 .catch(err => {
 	console.log(err);
 });
+
+
+    /*     
+        var array1 = [
+            {local: "FC Barcelona", visitante: "FC Barcelona"},        
+            {local: "Betis", visitante: "FC Barcelona"},
+            {local: "Real Madrid", visitante: "FC Barcelona"},    
+        ];
+
+        let set = new Set(array1.map(JSON.stringify));
+        let arraysinDuplicados = Array.from(set).map(JSON.parse);
+
+        console.log(arraysinDuplicados[0].local); 
+    */

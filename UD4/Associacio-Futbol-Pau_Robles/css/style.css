@@ -234,7 +234,8 @@ ol {
 }
 #aciertos span {
   margin: 5px 0;
-  color: #000000;
+  color: white;
+  font-size: 50px;
 }
 #contenedor_tabla { /* CSS para el contenedor de la tabla */
   width: 100%;
@@ -258,7 +259,7 @@ aside ul li a { /* CSS para la lista desordenada de los enlaces de la lista de Ã
   border-radius: 20px;
   justify-content: center;
   text-align: center;
-  font-size: 23px;
+  font-size: 50px;
 }
 aside li a { /* CSS para los enlaces de la lista de Ã­tems de la barra lateral */
   padding-bottom: 10px; 
