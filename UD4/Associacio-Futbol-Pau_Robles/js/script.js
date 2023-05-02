@@ -457,17 +457,3 @@ fetch("https://v3.football.api-sports.io/standings?league=142&season=2022", { //
 .catch(err => {
 	console.log(err);
 });
-
-
-    /*     
-        var array1 = [
-            {local: "FC Barcelona", visitante: "FC Barcelona"},        
-            {local: "Betis", visitante: "FC Barcelona"},
-            {local: "Real Madrid", visitante: "FC Barcelona"},    
-        ];
-
-        let set = new Set(array1.map(JSON.stringify));
-        let arraysinDuplicados = Array.from(set).map(JSON.parse);
-
-        console.log(arraysinDuplicados[0].local); 
-    */
